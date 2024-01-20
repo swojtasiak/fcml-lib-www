@@ -1,0 +1,4 @@
+<map id="fcml_st_assembled_instruction" name="fcml_st_assembled_instruction">
+<area shape="rect" id="node2" href="$structfcml__st__ceh__error__container.html" title="Container for all collected errors and warnings. " alt="" coords="13,109,200,136"/>
+<area shape="rect" id="node3" href="$structfcml__st__ceh__error__info.html" title="Information about one particular error/warning. " alt="" coords="29,5,184,32"/>
+</map>

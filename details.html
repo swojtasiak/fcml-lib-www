@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free Code Manipulation Library site.">
+    <meta name="author" content="Sławomir Wojtasiak">
+	<meta name="keywords" content="assembler, disassembler, dynamic library, static library, parser, renderer, generic instruction model, FCML, Intel, AT&T, MMX, 3D-Now!, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, SSE4A, AVX, AVX2, AES, TBM, BMI1, BMI2, HLE, ADX, CLMUL, RDRAND, RDSEED, FMA, FMA4, LWP, SVM, XOP, VMX, SMX">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <title>Details - Free Code Manipulation Library</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/fcml.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+	<a href="#main" class="sr-only">Skip to main content</a>
+	<div class="github-fork-ribbon-wrapper right fixed" style="width: 150px;height: 150px;position: fixed;overflow: hidden;top: 50px;z-index: 9999;right: 0;"><a href="https://github.com/swojtasiak/fcml-lib"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></div>
+
+	<!-- Header -->
+    <!-- Header -->
+     <header class="navbar navbar-inverse navbar-fixed-top header-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">FCML</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="manual.html#quick_start">Quick Start</a></li>
+            <li><a href="manual.html">Manual</a></li>
+			<li><a href="api/globals.html">API</a></li>
+			<li><a href="changelog.html">Changelog</a></li>
+			<li><a href="download.html">Download</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="https://github.com/swojtasiak/fcml-lib">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+	<!-- Content -->
+	<article class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+			  <article>
+				  <h1>About the library</h1>
+				  <p>The following chapters provide more information about the project.</p>
+				  <h2>Features list</h2>
+				  <p>
+					The following list describes the features in more detail:
+				  <p>
+					<dl>
+						<dt>One-line assembler</dt>
+						<dd>
+							<p>
+								The FCML assembler is a one-line load-and-go assembler implementation which is able to assemble instructions encoded in generic instruction model structures. The generic instruction model is a container used to describe instructions in a more user-friendly way (at least assuming that flexibility is our goal). That is, instead of providing a textual representation of an instruction, you can build it in a more dynamic way. Then every instruction can be assembled to one or more pieces of  machine code. It means that if there is an instruction which can be assembled to three forms, you will get all of them and only one will be marked as the preferred one. The API provided by the assembler is pure generic, therefore there are no dedicated functions for the supported instructions. Hence you can assemble everything using only one function and the generic instruction model describing an instruction.
+								<figure class="figure_manual">
+									<img src="img/assembler.png" title="Assembling process">
+									<figcaption>
+										Assembling process
+									</figcaption>
+								</figure>
+							</p>
+						</dd>
+						<dt>One-line disassembler</dt>
+						<dd>
+							<p>
+								The FCML disassembler also works with the generic instruction models. It gets a piece of machine code as a parameter and disassembles it to the generic instruction model describing an identified instruction. In addition it returns some additional information like prefixes fields, ModRM and SIB, instruction categories and more. Notice that assembling and disassembling are inverses in terms that they both use instructions encoded as the generic instruction model structures, so using the assembler you can recover a piece of machine code that was used to disassemble an instruction. It is very useful feature, because it allows us to modify an existing machine code easily.
+								<figure class="figure_manual">
+									<img src="img/disassembler.png" title="Disassembling process">
+									<figcaption>
+										Disassemblig process
+									</figcaption>
+								</figure>
+							</p>
+						</dd>
+						<dt>An experimental multi-pass load-and-go assembler (Multi line!)</dt>
+						<dd>
+							<p>
+								The FCML multi-pass load-and-go assembler assembles multiple lines of source code into the corresponding machine code. It optimizes the code in order to make it the smallest and fastest possible. It uses the classic FCML one-line assembler and FCML parser internally. At the moment it is an experimental implementation which needs more testing, so be warned.
+								<figure class="figure_manual">
+									<img src="img/diagram-multi-pass-assembler.png" title="Multi-pass disassembling process">
+									<figcaption>
+										Multi-pass disassemblig process
+									</figcaption>
+								</figure>
+							</p>
+						</dd>
+						<dt>Support for the Intel and AT&amp;T syntax</dt>
+						<dd>
+							<p>
+								Currently there are two instruction syntaxes supported. The AT&amp;T syntax based on the current implementation of the GNU Assembler (reproduces all inconsistencies that can be found there) and the Intel syntax which should be highly compatible with FASM and MASM assemblers.
+							</p>
+						</dd>
+						<dt>Instruction parser</dt>
+						<dd>
+							<p>
+								The FCML parser is responsible for converting an instruction written using a certain syntax to its generic instruction model based counterpart. It supports symbols and mathematical expressions.
+								<figure class="figure_manual">
+									<img src="img/parser.png" title="Parsing process">
+									<figcaption>
+										Parsing process
+									</figcaption>
+								</figure>
+							</p>
+						</dd>
+						<dt>Instruction renderer</dt>
+						<dd>
+							<p>
+								The idea behind a renderer is very simple. It gets a result of the assembling process and converts the instruction from the result into its textual representation. FCML renderer supports the Intel and AT&amp;T syntax.
+								<figure class="figure_manual">
+									<img src="img/renderer.png" title="Rendering process">
+									<figcaption>
+										Rendering process
+									</figcaption>
+								</figure>
+							</p>
+						</dd>
+						<dt>Instructions represented as generic models</dt>
+						<dd>
+							<p>
+								All FCML operations are based on a generic instruction model structure. The generic instruction model is a container which describes the assembler instruction as a set of independent pieces like: a mnemonic, prefixes, operands etc. Such a solution has the following advantages:	
+							</p>
+							<ul>
+								<li><p>You are able to build instructions in a dynamic manner and it is more convenient than a simple string concatenation.</p></li>
+								<li>
+									<p>You are able to disassemble a piece of machine code directly to the GIM, analyse it, then you may decide to change the offset of a branch instruction and pass such a modified GIM directly to the assembler to assemble it back. </p>
+								</li>
+								<li>
+									<p>You can parse an instruction to the GIM, analyse it (for example to check if the user tried to use a restricted register) and then pass such a verified model to the assembler.</p>
+								</li>
+							<ul>
+						</dd>
+						<dt>UNIX/GNU/Linux and Windows support</dt>
+						<dd>
+							<p>
+								The FCML library uses <i>Autotools</i>, so it can be built on a wide range of UNIX and GNU/Linux platforms as well as using the MinGW and Cygwin projects. There are also solutions prepared for Visual Studio 2017 and 2019. In case of Windows if you would like to build libraries with undecorated symbol names, you should use VS (for instance VS 2019 Express edition if you do not have the professional one). There are also pre-built binaries available for download (For VS).
+							</p>
+						</dd>
+						<dt>Portable - written entirely in C (no external dependencies)</dt>
+						<dd>
+							Although I personally prefer object-oriented languages, so it was tempted to use C++, finally I decided to use C just to make the library more portable. Anyway, a wrapper for C++ is also available: <i><a href="manual.html#cpp-wrapper">CPP Wrapper</a></i>.
+						</dd>
+					</dl>
+				  <h2>When should I take it into consideration?</h2>
+				  If you answer "yes" to any of these points, it might be a right choice for you:
+				  <ul class="simple-feature-list">
+					<li>You need an assembler/disassembler as a static or dynamic library (one 559kb dll/lib file in case of Windows).</li>
+					<li>You need to generate a piece of machine code in a dynamic and flexible way.</li>
+					<li>You need one-line assembler in your application. For instance some memory monitors support such a functionality.</li>
+					<li>You need to disassemble a piece of machine code into its textual representation.</li>
+					<li>You need to analyse a piece of machine code.</li>
+					<li>You need to transform some instructions (for instance in order to change the absolute address of a branch instruction easily).</li>
+					<li>You need to implement a machine code generator for a JIT compiler (and you are fine with the generic API).</li>
+					<li>You need to check if the given instruction can be assembled to a different form.</li>
+				  </ul>
+				  <h2>When it is probably not what I'm looking for :(</h2>
+				  If you answer "yes" to any of these points, it's probably not the best idea to use the FCML library.
+				  <ul class="simple-feature-list">
+					<li>You are to write a high-performance decode-and-dispatch or threaded instruction interpreter.</li>
+					<li>You need the ability of disassembling instructions to a generic instruction model which does not depend on the instruction dialect. (See the library manual for more details about the generic instruction model.)</li>
+					<li>You are looking for an assembler which is able to prepare the whole executable file with data chunks, import tables, etc.</li>
+					<li>You need a code generator which provides a strict instruction oriented API (dedicated methods for generating every instruction form). Such API might be more convenient for applications focused on a code generation like JIT compilers. (It will be probably supported in the future by FCML.)</li>
+				  </ul>
+				  <h2>Short history</h2>
+				  <p>
+					I started the project in late 2010 as a simple library I decided to write when I faced some problems related to static code translation. At the beginning it was supposed to support IA-32 architecture only, but then I decided to implement a wide range of instruction sets as well as the full x86-64 architecture support. When I decided to make the project public in 2012 (if I am not mistaken, but it does not matter anyway) I made a difficult decision to make the library more flexible and feature complete. In the result it took me 2 years more to implement everything, but currently the FCML library supports the Intel and AT&amp;T syntax, textual instructions parsing, experimental multi-pass load-and-go assembler and many many more. In addition I have spent about a year or so in order to write complete unit tests for every supported instruction form and dialect.
+				  <p/>
+			   </article>
+		   </div>
+		</div>
+	</article>
+	<!-- Footer -->
+	<footer class="footer clearfix">
+		Copyright &copy; 2010-2020 Sławomir Wojtasiak<br>
+		All rights reserved
+	</footer>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

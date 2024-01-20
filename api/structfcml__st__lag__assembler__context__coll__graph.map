@@ -1,0 +1,7 @@
+<map id="fcml_st_lag_assembler_context" name="fcml_st_lag_assembler_context">
+<area shape="rect" id="node2" href="$structfcml__st__assembler__conf.html" title="Assembler runtime configuration. " alt="" coords="190,199,354,225"/>
+<area shape="rect" id="node3" href="$structfcml__st__chooser__context.html" title="Instruction chooser context used to communicate with environment. " alt="" coords="5,102,173,129"/>
+<area shape="rect" id="node4" href="$structfcml__st__instruction__code.html" title="An encoded instruction. " alt="" coords="6,5,173,32"/>
+<area shape="rect" id="node5" href="$structfcml__st__asm__optimizer__context.html" title="Optimizer context used as a connector with the environment. " alt="" coords="197,95,355,136"/>
+<area shape="rect" id="node6" href="$structfcml__st__entry__point.html" title="Describes address of an instruction code. " alt="" coords="273,5,409,32"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="fcml_st_address" name="fcml_st_address">
+<area shape="rect" id="node2" href="$structfcml__st__offset.html" title="Absolute offset. " alt="" coords="5,109,111,136"/>
+<area shape="rect" id="node3" href="$structfcml__st__effective__address.html" title="Effective address. " alt="" coords="135,109,309,136"/>
+<area shape="rect" id="node4" href="$structfcml__st__integer.html" title="fcml_st_integer" alt="" coords="167,5,277,32"/>
+<area shape="rect" id="node5" href="$structfcml__st__register.html" title="Structure describes x86_64 register. " alt="" coords="321,5,435,32"/>
+<area shape="rect" id="node6" href="$structfcml__st__segment__selector.html" title="Describes segment register. " alt="" coords="333,109,508,136"/>
+</map>

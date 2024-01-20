@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free Code Manipulation Library site.">
+    <meta name="author" content="Sławomir Wojtasiak">
+	<meta name="keywords" content="assembler, disassembler, dynamic library, static library, parser, renderer, generic instruction model, FCML, Intel, AT&T, MMX, 3D-Now!, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, SSE4A, AVX, AVX2, AES, TBM, BMI1, BMI2, HLE, ADX, CLMUL, RDRAND, RDSEED, FMA, FMA4, LWP, SVM, XOP, VMX, SMX">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <title>Free Code Manipulation Library</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/fcml.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<a href="#main" class="sr-only">Skip to main content</a>
+	<div class="github-fork-ribbon-wrapper right fixed" style="width: 150px;height: 150px;position: fixed;overflow: hidden;top: 50px;z-index: 9999;right: 0;"><a href="https://github.com/swojtasiak/fcml-lib"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></div>
+
+	<!-- HEADER -->
+     <header class="navbar navbar-inverse navbar-fixed-top header-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">FCML</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="manual.html#quick_start">Quick Start</a></li>
+            <li><a href="manual.html">Manual</a></li>
+			<li><a href="api/globals.html">API</a></li>
+			<li><a href="changelog.html">Changelog</a></li>
+			<li><a href="download.html">Download</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="https://github.com/swojtasiak/fcml-lib">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+	
+	<!-- CONTENT -->
+	
+    <div class="container" id="main">
+		<div class="jumbotron-wrapper">
+			<div class="jumbotron">
+				<h1>Free Code Manipulation Library</h1>
+				<p class="lead">This is a general purpose machine code manipulation library for IA-32 and Intel 64 architectures. The library supports UNIX-like systems as well as Windows and is highly portable. The FCML library is free for commercial and non-commercial use as long as the terms of the LGPL license are met. Currently it supports such features as:</p>
+				<ul class="feature-list">
+					<li>A one-line disassembler</li>
+					<li>A one-line assembler</li>
+					<li>An experimental multi-pass load-and-go assembler (Multi line!)</li>
+					<li>Support for the Intel and AT&amp;T syntax</li>
+					<li>An instruction renderer</li>
+					<li>An instruction parser</li>
+					<li>Instructions represented as generic models</li>
+					<li>UNIX/GNU/Linux and Windows support</li>
+					<li>Portable - written entirely in C (no external dependencies)</li>
+					<li>C++ wrapper</li>
+					<li>Supported instruction sets: <span class="instruction-list">MMX, 3D-Now!, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, SSE4A, AVX, AVX2, AES, TBM, BMI1, BMI2, HLE, ADX, CLMUL, RDRAND, RDSEED, FMA, FMA4, LWP, SVM, XOP, VMX, SMX, AVX-512, XEON PHI</span></li>
+				</ul>
+				
+				<p><a class="btn btn-lg btn-success" href="details.html" role="button">Click for more details!</a></p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+			  <h2><span class="glyphicon glyphicon-road info-box-icon"></span>Quick Start</h2>
+			  <p class="small-info-box">This guide shows how to assemble and disassemble instructions with as little effort as possible, without digging into every detail and function supported by the library. These chapters are completely independent, so if you are interested only in disassembling, feel free to read the disassembler section only!</p>
+			  <p><a class="btn btn-primary" href="manual.html#quick_start" role="button">Let's read »</a></p>
+		   </div>
+		   <div class="col-lg-4">
+			  <h2><span class="glyphicon glyphicon-book info-box-icon"></span>Manual</h2>
+			  <p>If you are looking for comprehensive documentation describing all FCML features in detail, you can head over to the manual pages!</p>
+			  <p><a class="btn btn-primary" href="manual.html" role="button">Let's read »</a></p>
+		   </div>
+		   <div class="col-lg-4">
+			  <h2><span class="glyphicon glyphicon-download info-box-icon"></span>Download</h2>
+			  <p>Here you can download distribution packages which consist of the library source code which can be used to build the library and pre-built binaries for Windows (MinGW and Visual Studio).</p>
+			  <p><a class="btn btn-primary" href="download.html" role="button">Let's download »</a></p>
+		   </div>
+		</div>
+	</div>
+	
+	<!-- FOOTER -->
+	<footer class="footer clearfix">
+		Copyright &copy; 2010-2020 Sławomir Wojtasiak<br>
+		All rights reserved
+	</footer>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

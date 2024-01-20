@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free Code Manipulation Library site.">
+    <meta name="author" content="Sławomir Wojtasiak">
+	<meta name="keywords" content="assembler, disassembler, dynamic library, static library, parser, renderer, generic instruction model, FCML, Intel, AT&amp;T, MMX, 3D-Now!, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, SSE4A, AVX, AVX2, AES, TBM, BMI1, BMI2, HLE, ADX, CLMUL, RDRAND, RDSEED, FMA, FMA4, LWP, SVM, XOP, VMX, SMX">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <title>Contact - Free Code Manipulation Library</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/fcml.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body data-spy="scroll" data-target=".toc-sidebar" class="contact">
+  
+	<a href="#main" class="sr-only">Skip to main content</a>
+    <div class="github-fork-ribbon-wrapper right fixed" style="width: 150px;height: 150px;position: fixed;overflow: hidden;top: 50px;z-index: 9999;right: 0;"><a href="https://github.com/swojtasiak/fcml-lib"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a></div>
+	
+	<!-- Header -->
+      <header class="navbar navbar-inverse navbar-fixed-top header-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">FCML</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="manual.html#quick_start">Quick Start</a></li>
+            <li><a href="manual.html">Manual</a></li>
+			<li><a href="api/globals.html">API</a></li>
+			<li><a href="changelog.html">Changelog</a></li>
+			<li><a href="download.html">Download</a></li>
+			<li><a href="contact.html">Contact</a></li>
+            <li><a href="https://github.com/swojtasiak/fcml-lib">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+	
+	
+	<!-- Content -->
+	<article class="container">
+		<h2 class="contact">Contact</h2>
+		<p>
+			If you would like to contact me, you can write to the following e-mail address: <b><a id="author" href="mailto:sXlXaXwXoXmXiXr.wXoXjXtXaXsXiXaXk@fXcXmXl-lXiXb.com">Please enable JavaScript.</a></b>
+		</p>
+		<h2>Report a bug</h2>
+		<p>
+			If you found a bug, please report it here: <b><a href="https://github.com/swojtasiak/fcml-lib/issues">https://github.com/swojtasiak/fcml-lib/issues</a></b>
+		</p>
+	</article>
+	
+	<!-- Footer -->
+	<footer class="footer clearfix fixed-footer">
+		Copyright &copy; 2010-2020 Sławomir Wojtasiak<br>
+		All rights reserved
+	</footer>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		encEA( document.getElementById("author") );
+		encEA( document.getElementById("bugs") );
+		function encEA( element ) {
+			if( element ) {
+				while (element.hasChildNodes()) {
+					element.removeChild(element.lastChild);
+				}
+				var encoded = element.href;
+				if( encoded ) {
+					var dec_href = encoded.replace(/X/g,"");
+					var dec_text = dec_href.replace("mailto:","");
+					element.href = dec_href;
+					element.appendChild(document.createTextNode(dec_text));
+				}
+			}
+		}
+	</script>
+    <script src="js/bootstrap.js"></script> 
+  </body>
+</html>

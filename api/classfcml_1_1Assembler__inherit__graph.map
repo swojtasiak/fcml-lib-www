@@ -1,0 +1,4 @@
+<map id="fcml::Assembler" name="fcml::Assembler">
+<area shape="rect" id="node2" href="$classfcml_1_1NonCopyable.html" title="Object which shouldn&#39;t be copied can inherit from this class. " alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node3" href="$classfcml_1_1DialectAware.html" title="Inherit from this class in order to get access to the native FCML dialect structure. " alt="" coords="165,5,298,32"/>
+</map>

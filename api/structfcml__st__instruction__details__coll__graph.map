@@ -1,0 +1,10 @@
+<map id="fcml_st_instruction_details" name="fcml_st_instruction_details">
+<area shape="rect" id="node2" href="$structfcml__st__decoded__modrm__details.html" title="Some basic information about decoded ModR/M and SIB bytes. " alt="" coords="53,199,221,240"/>
+<area shape="rect" id="node3" href="$structfcml__nuint8__t.html" title="fcml_nuint8_t" alt="" coords="5,102,105,129"/>
+<area shape="rect" id="node4" href="$structfcml__st__raw__displacement.html" title="Displacement in raw form. " alt="" coords="129,102,307,129"/>
+<area shape="rect" id="node5" href="$structfcml__nuint32__t.html" title="fcml_nuint32_t" alt="" coords="98,5,205,32"/>
+<area shape="rect" id="node6" href="$structfcml__st__integer.html" title="fcml_st_integer" alt="" coords="229,5,340,32"/>
+<area shape="rect" id="node7" href="$structfcml__st__operand__details.html" title="Some additional disassembler specific information about decoded operands. " alt="" coords="245,206,407,233"/>
+<area shape="rect" id="node8" href="$structfcml__st__prefixes__details.html" title="Contains some additional information about all decoded instruction prefixes. " alt="" coords="431,206,594,233"/>
+<area shape="rect" id="node9" href="$structfcml__st__instruction__prefix.html" title="Describes one decoded prefix. " alt="" coords="447,95,579,136"/>
+</map>

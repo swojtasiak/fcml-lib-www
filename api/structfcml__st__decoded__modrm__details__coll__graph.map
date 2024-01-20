@@ -1,0 +1,6 @@
+<map id="fcml_st_decoded_modrm_details" name="fcml_st_decoded_modrm_details">
+<area shape="rect" id="node2" href="$structfcml__nuint8__t.html" title="fcml_nuint8_t" alt="" coords="14,95,114,121"/>
+<area shape="rect" id="node3" href="$structfcml__st__raw__displacement.html" title="Displacement in raw form. " alt="" coords="138,95,315,121"/>
+<area shape="rect" id="node4" href="$structfcml__nuint32__t.html" title="fcml_nuint32_t" alt="" coords="107,5,213,32"/>
+<area shape="rect" id="node5" href="$structfcml__st__integer.html" title="fcml_st_integer" alt="" coords="238,5,349,32"/>
+</map>

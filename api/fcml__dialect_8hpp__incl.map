@@ -1,0 +1,14 @@
+<map id="include/fcml_dialect.hpp" name="include/fcml_dialect.hpp">
+<area shape="rect" id="node2" href="$fcml__common_8hpp.html" title="C++ wrappers common classes. " alt="" coords="856,80,985,107"/>
+<area shape="rect" id="node21" href="$fcml__dialect_8h.html" title="Structures and functions related to dialects. " alt="" coords="1128,379,1231,405"/>
+<area shape="rect" id="node11" href="$fcml__types_8h.html" title="Types declarations. " alt="" coords="393,453,491,480"/>
+<area shape="rect" id="node16" href="$fcml__common_8h.html" title="Definitions of common structures used by FCML components. " alt="" coords="718,379,833,405"/>
+<area shape="rect" id="node18" href="$fcml__common__utils_8h.html" title="Common general purpose utility functions. " alt="" coords="847,155,994,181"/>
+<area shape="rect" id="node20" href="$fcml__errors_8h.html" title="Global error handling related declarations. " alt="" coords="443,379,542,405"/>
+<area shape="rect" id="node15" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting. " alt="" coords="715,528,836,555"/>
+<area shape="rect" id="node17" href="$fcml__instructions_8h.html" title="Instruction codes and addressing modes/instruction forms. " alt="" coords="1009,453,1141,480"/>
+<area shape="rect" id="node19" href="$fcml__assembler_8h.html" title="Structures and functions declarations related to one&#45;line FCML assembler. " alt="" coords="630,229,755,256"/>
+<area shape="rect" id="node24" href="$fcml__disassembler_8h.html" title="Structures and functions declarations related to FCML disassembler. " alt="" coords="959,304,1101,331"/>
+<area shape="rect" id="node22" href="$fcml__optimizers_8h.html" title="API for assembler optimizers. " alt="" coords="462,304,587,331"/>
+<area shape="rect" id="node23" href="$fcml__choosers_8h.html" title="API for instruction choosers. " alt="" coords="612,304,731,331"/>
+</map>
