@@ -1,20 +1,56 @@
 <map id="include/fcml_choosers.h" name="include/fcml_choosers.h">
-<area shape="rect" id="node2" href="$fcml__assembler_8h.html" title="Structures and functions declarations related to one&#45;line FCML assembler. " alt="" coords="152,80,323,107"/>
-<area shape="rect" id="node3" href="$fcml__assembler_8hpp.html" title="C++ wrapper for FCML assembler. " alt="" coords="248,401,432,427"/>
-<area shape="rect" id="node6" href="$fcml__common__utils_8h.html" title="Common general purpose utility functions. " alt="" coords="425,155,575,196"/>
-<area shape="rect" id="node19" href="$fcml__lag__assembler_8h.html" title="Experimental multiline load&#45;and&#45;go assembler implementation. " alt="" coords="5,244,200,271"/>
-<area shape="rect" id="node4" href="$fcml__lag__assembler_8hpp.html" title="C++ wrapper for the Multi&#45;pass FCML assembler. " alt="" coords="107,490,315,517"/>
-<area shape="rect" id="node5" href="$fcml__stateful__assembler_8hpp.html" title="Stateful FCML assembler implementation. " alt="" coords="402,483,545,524"/>
-<area shape="rect" id="node7" href="$fcml__common_8hpp.html" title="C++ wrappers common classes. " alt="" coords="565,244,739,271"/>
-<area shape="rect" id="node8" href="$fcml__errors_8hpp.html" title="C++ wrapper for the FCML errors handling. " alt="" coords="573,319,731,345"/>
-<area shape="rect" id="node9" href="$fcml__disassembler_8hpp.html" title="C++ wrapper for the FCML disassembler. " alt="" coords="641,401,842,427"/>
-<area shape="rect" id="node10" href="$fcml__renderer_8hpp.html" title="C++ wrapper for FCML renderer. " alt="" coords="779,490,949,517"/>
-<area shape="rect" id="node12" href="$fcml__parser_8hpp.html" title="C++ wrapper for instruction parser. " alt="" coords="456,401,616,427"/>
-<area shape="rect" id="node13" href="$fcml__dialect_8hpp.html" title="C++ wrapper for the base dialect. " alt="" coords="755,319,917,345"/>
-<area shape="rect" id="node16" href="$fcml__symbols_8hpp.html" title="C++ API for symbols handling. " alt="" coords="275,319,448,345"/>
-<area shape="rect" id="node17" href="$fcml__registers_8hpp.html" title="C++ registers declarations. " alt="" coords="1111,319,1286,345"/>
-<area shape="rect" id="node11" href="$fcml__stateful__disassembler_8hpp.html" title="Stateful FCML disassembler implementation. " alt="" coords="731,572,874,613"/>
-<area shape="rect" id="node14" href="$fcml__gas__dialect_8hpp.html" title="C++ wrapper for the AT&amp;T dialect. " alt="" coords="866,401,1057,427"/>
-<area shape="rect" id="node15" href="$fcml__intel__dialect_8hpp.html" title="C++ wrapper for the Intel dialect. " alt="" coords="1081,393,1204,435"/>
-<area shape="rect" id="node18" href="$fcml__registers_8cpp.html" title="C++ registers definitions. " alt="" coords="1229,401,1403,427"/>
+<area shape="rect" id="Node000001" title="API for instruction choosers." alt="" coords="169,5,347,31"/>
+<area shape="rect" id="Node000002" href="$fcml__assembler_8h.html" title="Structures and functions declarations related to one&#45;line FCML assembler." alt="" coords="164,79,352,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,44,261,79,255,79,255,44"/>
+<area shape="rect" id="Node000003" href="$fcml__assembler_8hpp.html" title="C++ wrapper for FCML assembler." alt="" coords="205,409,409,434"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="264,117,308,408,303,409,259,118"/>
+<area shape="rect" id="Node000006" href="$fcml__common__utils_8h.html" title="Common general purpose utility functions." alt="" coords="493,152,660,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="318,105,501,149,499,155,317,110"/>
+<area shape="rect" id="Node000021" href="$fcml__lag__assembler_8h.html" title="Experimental multiline load&#45;and&#45;go assembler implementation." alt="" coords="5,240,220,265"/>
+<area shape="poly" id="edge32_Node000002_Node000021" title=" " alt="" coords="240,116,125,241,121,238,236,113"/>
+<area shape="rect" id="Node000004" href="$fcml__lag__assembler_8hpp.html" title="C++ wrapper for the Multi&#45;pass FCML assembler." alt="" coords="52,497,283,522"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="278,444,188,499,185,494,275,439"/>
+<area shape="rect" id="Node000005" href="$fcml__stateful__assembler_8hpp.html" title="Stateful FCML assembler implementation." alt="" coords="375,489,533,529"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="340,439,423,487,420,491,338,443"/>
+<area shape="rect" id="Node000007" href="$fcml__common_8hpp.html" title="C++ wrappers common classes." alt="" coords="742,240,937,265"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="654,193,802,237,800,242,652,199"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="728,255,620,258,504,267,402,286,363,299,336,315,320,337,312,362,309,409,304,408,307,361,315,334,332,311,361,294,401,280,503,262,619,253,728,250"/>
+<area shape="rect" id="Node000008" href="$fcml__dialect_8hpp.html" title="C++ wrapper for the base dialect." alt="" coords="813,321,994,346"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="859,274,896,319,892,322,855,278"/>
+<area shape="rect" id="Node000009" href="$fcml__disassembler_8hpp.html" title="C++ wrapper for the FCML disassembler." alt="" coords="869,409,1092,434"/>
+<area shape="poly" id="edge18_Node000007_Node000009" title=" " alt="" coords="944,267,980,285,1008,312,1017,338,1013,365,1003,390,991,410,986,407,998,388,1008,364,1011,338,1004,315,977,289,942,272"/>
+<area shape="rect" id="Node000010" href="$fcml__renderer_8hpp.html" title="C++ wrapper for FCML renderer." alt="" coords="1019,497,1209,522"/>
+<area shape="poly" id="edge28_Node000007_Node000010" title=" " alt="" coords="951,254,1127,261,1328,272,1501,289,1562,299,1598,311,1621,329,1635,349,1651,401,1657,422,1657,433,1651,443,1629,455,1589,466,1474,484,1336,497,1210,505,1210,500,1336,491,1473,478,1588,461,1627,450,1647,439,1652,431,1652,423,1646,402,1630,351,1617,333,1595,316,1561,304,1501,294,1327,278,1127,267,950,260"/>
+<area shape="rect" id="Node000014" href="$fcml__parser_8hpp.html" title="C++ wrapper for instruction parser." alt="" coords="433,409,611,434"/>
+<area shape="poly" id="edge25_Node000007_Node000014" title=" " alt="" coords="826,279,795,318,774,338,751,356,719,370,673,385,574,411,572,406,671,380,717,365,749,351,771,334,791,314,822,275"/>
+<area shape="rect" id="Node000015" href="$fcml__errors_8hpp.html" title="C++ wrapper for the FCML errors handling." alt="" coords="563,321,737,346"/>
+<area shape="poly" id="edge19_Node000007_Node000015" title=" " alt="" coords="800,273,679,323,677,318,798,268"/>
+<area shape="rect" id="Node000016" href="$fcml__intel__mnemonics_8hpp.html" title="Declarations of Intel mnemonics." alt="" coords="1122,313,1261,353"/>
+<area shape="poly" id="edge23_Node000007_Node000016" title=" " alt="" coords="904,266,1122,314,1121,319,903,271"/>
+<area shape="rect" id="Node000018" href="$fcml__registers_8hpp.html" title="C++ registers declarations." alt="" coords="1390,321,1585,346"/>
+<area shape="poly" id="edge26_Node000007_Node000018" title=" " alt="" coords="947,264,1393,318,1393,323,947,270"/>
+<area shape="rect" id="Node000020" href="$fcml__symbols_8hpp.html" title="C++ API for symbols handling." alt="" coords="346,321,538,346"/>
+<area shape="poly" id="edge29_Node000007_Node000020" title=" " alt="" coords="769,271,500,323,499,318,768,265"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="804,350,422,404,376,411,375,406,422,399,803,345"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="925,355,972,406,968,410,921,358"/>
+<area shape="rect" id="Node000012" href="$fcml__gas__dialect_8hpp.html" title="C++ wrapper for the AT&amp;T dialect." alt="" coords="635,409,846,434"/>
+<area shape="poly" id="edge14_Node000008_Node000012" title=" " alt="" coords="871,355,764,411,762,406,868,350"/>
+<area shape="rect" id="Node000013" href="$fcml__intel__dialect_8hpp.html" title="C++ wrapper for the Intel dialect." alt="" coords="1117,401,1255,441"/>
+<area shape="poly" id="edge15_Node000008_Node000013" title=" " alt="" coords="956,348,1124,399,1123,404,954,353"/>
+<area shape="poly" id="edge16_Node000008_Node000014" title=" " alt="" coords="839,352,573,411,572,406,838,346"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="1012,439,1097,494,1094,499,1009,444"/>
+<area shape="rect" id="Node000011" href="$fcml__stateful__disassembler_8hpp.html" title="Stateful FCML disassembler implementation." alt="" coords="968,577,1127,617"/>
+<area shape="poly" id="edge13_Node000009_Node000011" title=" " alt="" coords="987,447,996,486,1010,528,1036,576,1032,578,1005,530,991,487,982,448"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="1099,535,1064,578,1060,575,1094,531"/>
+<area shape="poly" id="edge17_Node000014_Node000005" title=" " alt="" coords="507,446,471,491,467,487,502,443"/>
+<area shape="poly" id="edge20_Node000015_Node000003" title=" " alt="" coords="591,352,354,411,352,406,590,347"/>
+<area shape="poly" id="edge21_Node000015_Node000009" title=" " alt="" coords="708,347,937,406,936,411,707,352"/>
+<area shape="poly" id="edge22_Node000015_Node000014" title=" " alt="" coords="623,356,541,411,538,406,620,352"/>
+<area shape="rect" id="Node000017" href="$fcml__intel__mnemonics_8cpp.html" title="Definitions of Intel mnemonics for C++." alt="" coords="1279,401,1418,441"/>
+<area shape="poly" id="edge24_Node000016_Node000017" title=" " alt="" coords="1239,358,1315,399,1313,404,1237,362"/>
+<area shape="rect" id="Node000019" href="$fcml__registers_8cpp.html" title="C++ registers definitions." alt="" coords="1443,409,1636,434"/>
+<area shape="poly" id="edge27_Node000018_Node000019" title=" " alt="" coords="1504,357,1534,407,1530,410,1499,359"/>
+<area shape="poly" id="edge30_Node000020_Node000004" title=" " alt="" coords="332,342,295,350,259,362,224,379,195,403,180,425,172,451,169,496,164,496,167,450,175,423,191,400,221,375,257,357,294,344,331,337"/>
+<area shape="poly" id="edge31_Node000020_Node000014" title=" " alt="" coords="464,354,513,406,509,410,460,358"/>
+<area shape="poly" id="edge33_Node000021_Node000004" title=" " alt="" coords="121,278,167,496,162,497,115,279"/>
 </map>

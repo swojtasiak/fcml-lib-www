@@ -1,3 +1,5 @@
 <map id="include/fcml_lag_assembler.h" name="include/fcml_lag_assembler.h">
-<area shape="rect" id="node2" href="$fcml__lag__assembler_8hpp.html" title="C++ wrapper for the Multi&#45;pass FCML assembler. " alt="" coords="5,80,213,107"/>
+<area shape="rect" id="Node000001" title="Experimental multiline load&#45;and&#45;go assembler implementation." alt="" coords="13,5,228,31"/>
+<area shape="rect" id="Node000002" href="$fcml__lag__assembler_8hpp.html" title="C++ wrapper for the Multi&#45;pass FCML assembler." alt="" coords="5,79,236,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,44,123,79,118,79,118,44"/>
 </map>

@@ -1,3 +1,5 @@
 <map id="fcml_st_asm_optimizer_processing_details" name="fcml_st_asm_optimizer_processing_details">
-<area shape="rect" id="node2" href="$structfcml__st__nullable__size__flags.html" title="Nullable wrapper for mask of size flags. " alt="" coords="11,5,157,47"/>
+<area shape="rect" id="Node000001" title="Processing details for optimizers." alt="" coords="5,123,180,163"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__nullable__size__flags.html" title="Nullable wrapper for mask of size flags." alt="" coords="11,5,174,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,59,95,122,90,122,90,59"/>
 </map>

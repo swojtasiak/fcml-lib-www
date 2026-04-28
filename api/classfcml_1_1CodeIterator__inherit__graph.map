@@ -1,3 +1,5 @@
 <map id="fcml::CodeIterator" name="fcml::CodeIterator">
-<area shape="rect" id="node2" href="$classfcml_1_1Iterator.html" title="fcml::Iterator\&lt; fcml\l_uint8_t \&gt;" alt="" coords="5,5,139,47"/>
+<area shape="rect" id="Node000001" title="Iterates over machine code bytes from assembled instructions." alt="" coords="11,93,151,119"/>
+<area shape="rect" id="Node000002" href="$classfcml_1_1Iterator.html" title=" " alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,59,83,93,78,93,78,59"/>
 </map>

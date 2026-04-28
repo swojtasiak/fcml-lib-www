@@ -1,3 +1,5 @@
 <map id="fcml_st_prefixes_details" name="fcml_st_prefixes_details">
-<area shape="rect" id="node2" href="$structfcml__st__instruction__prefix.html" title="Describes one decoded prefix. " alt="" coords="21,5,153,47"/>
+<area shape="rect" id="Node000001" title="Contains some additional information about all decoded instruction prefixes." alt="" coords="5,108,184,133"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__instruction__prefix.html" title="Describes one decoded prefix." alt="" coords="21,5,168,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,59,97,108,92,108,92,59"/>
 </map>

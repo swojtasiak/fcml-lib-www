@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free Code Manipulation Library site.">
     <meta name="author" content="Sławomir Wojtasiak">
-	<meta name="keywords" content="assembler, disassembler, dynamic library, static library, parser, renderer, generic instruction model, load-and-go assembler, multi-pass assembler, FCML, Intel, AT&amp;T, MMX, 3D-Now!, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, SSE4A, AVX, AVX2, AES, TBM, BMI1, BMI2, HLE, ADX, CLMUL, RDRAND, RDSEED, FMA, FMA4, LWP, SVM, XOP, VMX, SMX">
+	<meta name="keywords" content="assembler, disassembler, dynamic library, static library, parser, renderer, generic instruction model, load-and-go assembler, multi-pass assembler, FCML, Intel, AT&amp;T, MMX, 3D-Now!, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, SSE4A, AVX, AVX2, AES, TBM, BMI1, BMI2, HLE, ADX, CLMUL, RDRAND, RDSEED, FMA, FMA4, LWP, SVM, XOP, VMX, SMX, AVX-512, EVEX, opmask, ZMM, decorator, broadcast, SAE, embedded rounding">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
     <title>Manual - Free Code Manipulation Library</title>
 	<!-- Code Highlighter -->
@@ -66,12 +66,11 @@
 <!-- *********************** -->
 
 				<p class="manual-title">The FCML Library Reference Manual</p>
-				<p>(The manual does not cover AVX-512 yet.)</p>
 				<p>
 					<b>Authors:</b><br>
 					<span class="authors-box" id="author-sw">Sławomir Wojtasiak</span><br>
 					<span class="copyright-element">
-						Copyright &copy; 2014-2020 Sławomir Wojtasiak. All Rights Reserved.
+						Copyright &copy; 2014-2026 Sławomir Wojtasiak. All Rights Reserved.
 					</span>
 				</p>
 				
@@ -114,6 +113,7 @@
 											<li><a href="#op-far-pointer">Far pointer operand</a></li>
 											<li><a href="#op-address-operand">Address operand</a></li>
 											<li><a href="#op-register-operand">Register operand</a></li>
+											<li><a href="#op-decorators">AVX-512 operand decorators</a></li>
 										</ul>
 									</li>
 								</ul>
@@ -229,6 +229,7 @@
 									<li><a href="#cpp-generic-instruction-model-cpp-addresses">Addresses</a></li>
 									<li><a href="#cpp-generic-instruction-model-cpp-conditions">Conditions</a></li>
 									<li><a href="#cpp-generic-instruction-model-cpp-operands">Operands</a></li>
+									<li><a href="#cpp-generic-instruction-model-cpp-decorators">AVX-512 operand decorators</a></li>
 									<li><a href="#cpp-generic-instruction-model-cpp-instructions">Instructions</a></li>
 								</ul>
 							</li>
@@ -1066,6 +1067,7 @@ typedef struct fcml_st_operand {
     fcml_st_far_pointer far_pointer;
     fcml_st_address address;
     fcml_st_register reg;
+    fcml_st_operand_decorators decorators;
 } fcml_st_operand;
 </pre>
 <p>
@@ -1077,7 +1079,8 @@ typedef enum fcml_en_operand_type {
 	FCML_OT_IMMEDIATE,
 	FCML_OT_FAR_POINTER,
 	FCML_OT_ADDRESS,
-	FCML_OT_REGISTER
+	FCML_OT_REGISTER,
+	FCML_OT_VIRTUAL
 } fcml_en_operand_type;
 </pre>
 <dl>
@@ -1091,6 +1094,8 @@ typedef enum fcml_en_operand_type {
 	<dd><p>Effective address.</p></dd>
 	<dt>FCML_OT_REGISTER</dt>
 	<dd><p>One of the supported registers.</p></dd>
+	<dt>FCML_OT_VIRTUAL</dt>
+	<dd><p>Not a real operand — only a container for attributes such as AVX-512 embedded rounding control (<i>{er}</i>) and suppress-all-exceptions (<i>{sae}</i>) that apply to the whole instruction rather than to a specific operand.</p></dd>
 </dl>
 
 <h4 id="op-hints">Hints</h4>
@@ -1432,7 +1437,8 @@ typedef enum fcml_en_register {
 	FCML_REG_SEG,
 	FCML_REG_CR,
 	FCML_REG_DR,
-	FCML_REG_IP
+	FCML_REG_IP,
+	FCML_REG_OPMASK   /* AVX-512 opmask registers K0-K7 */
 } fcml_en_register;
 </pre>
 <p>
@@ -1442,7 +1448,7 @@ All available types are described below:
 	<dt>FCML_REG_GPR</dt>
 	<dd><p>General purpose registers like FCML_REG_AL, FCML_REG_AX etc.</p></dd>
 	<dt>FCML_REG_SIMD</dt>
-	<dd><p>SIMD registers like FCML_REG_MM1, FCML_REG_XMM1, FCML_REG_YMM1.</p></dd>
+	<dd><p>SIMD registers: MMX (FCML_REG_MM0–MM7), SSE (FCML_REG_XMM0–XMM31), AVX (FCML_REG_YMM0–YMM31) and AVX-512 (FCML_REG_ZMM0–ZMM31).</p></dd>
 	<dt>FCML_REG_FPU</dt>
 	<dd><p>FPU registers FCML_REG_ST0, FCML_REG_ST2 etc.</p></dd>
 	<dt>FCML_REG_SEG</dt>
@@ -1453,9 +1459,11 @@ All available types are described below:
 	<dd><p>Debug registers FCML_REG_DR0, FCML_REG_DR1, FCML_REG_DR2 etc.</p></dd>
 	<dt>FCML_REG_IP</dt>
 	<dd><p>Instruction pointer (Used only with RIP addressing.)</p></dd>
+	<dt>FCML_REG_OPMASK</dt>
+	<dd><p>AVX-512 opmask (predicate) registers K0–K7. Used in operand decorator <i>operand_mask_reg</i> and as standalone operands in mask manipulation instructions. (Since 1.2.0.)</p></dd>
 </dl>
 <p>
-	The next two fields stores the register number (See table below.) and its size in bits. You can use the following defines to set appropriate size: <i>FCML_DS_8</i>, <i>FCML_DS_16</i>, <i>FCML_DS_32</i>, <i>FCML_DS_64</i>, <i>FCML_DS_128</i>, <i>FCML_DS_256</i>.
+	The next two fields stores the register number (See table below.) and its size in bits. You can use the following defines to set appropriate size: <i>FCML_DS_8</i>, <i>FCML_DS_16</i>, <i>FCML_DS_32</i>, <i>FCML_DS_64</i>, <i>FCML_DS_128</i>, <i>FCML_DS_256</i>, <i>FCML_DS_512</i>.
 </p>
 <p>
 	The last field <i>x64_exp</i> is an interesting one. In 64-bit mode in some circumstances processor can not reference following registers: AH, BH, CH, DH. This is an architecture limitation. The overall rule comes down to the fact that they cannot be used when a REX prefix exists for the instruction. Therefore always
@@ -1506,15 +1514,21 @@ The following table shows all supported registers grouped by their types:
 				</td>
 			</tr>
 			<tr>
-				<td>128-bit SIMD</td>
+				<td>128-bit SIMD (XMM)</td>
 				<td>
-					FCML_REG_XMM0 - FCML_REG_XMM15
+					FCML_REG_XMM0 - FCML_REG_XMM15 (legacy), FCML_REG_XMM16 - FCML_REG_XMM31 (EVEX only)
 				</td>
 			</tr>
 			<tr>
-				<td>256-bit SIMD</td>
+				<td>256-bit SIMD (YMM)</td>
 				<td>
-					FCML_REG_YMM0 - FCML_REG_YMM15
+					FCML_REG_YMM0 - FCML_REG_YMM15 (legacy), FCML_REG_YMM16 - FCML_REG_YMM31 (EVEX only)
+				</td>
+			</tr>
+			<tr>
+				<td>512-bit SIMD (ZMM)</td>
+				<td>
+					FCML_REG_ZMM0 - FCML_REG_ZMM31
 				</td>
 			</tr>
 			<tr>
@@ -1541,12 +1555,87 @@ The following table shows all supported registers grouped by their types:
 					FCML_REG_DR0, FCML_REG_DR1, FCML_REG_DR2, FCML_REG_DR3, FCML_REG_DR4, FCML_REG_DR5, FCML_REG_DR6, FCML_REG_DR7
 				</td>
 			</tr>
+			<tr>
+				<td>Opmask registers (K)</td>
+				<td>
+					FCML_REG_K0 - FCML_REG_K7
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
 <div class="notice-box">
 Remember that these defines can be used only to specify the register number. They do not describe register size in any way! It is why the register size has to be set in <i>size</i> field anyway.
 </div>
+
+<h4 id="op-decorators">AVX-512 operand decorators</h4>
+<p>
+	AVX-512 instructions (encoded with the EVEX prefix) support a set of per-operand and per-instruction decorators that control masking, zeroing, broadcasting, embedded rounding and exception suppression. These are carried in the <i>decorators</i> field of <i>fcml_st_operand</i> using the following structure (available since version 1.2.0):
+</p>
+<pre class="brush: cpp">
+typedef struct fcml_st_operand_decorators {
+    fcml_nuint8_t bcast;
+    fcml_bool z;
+    fcml_st_register operand_mask_reg;
+    fcml_nuint8_t er;
+    fcml_bool sae;
+} fcml_st_operand_decorators;
+</pre>
+<dl>
+	<dt>bcast</dt>
+	<dd>
+		<p>
+			Nullable 8-bit integer that encodes the broadcasting factor for memory operands. When set, a single memory element is broadcast to all vector lanes. Valid values are 2, 4, 8, 16, 32 and 64, corresponding to the <i>{1to2}</i>, <i>{1to4}</i> … <i>{1to64}</i> EVEX broadcast decorators. When <i>is_not_null</i> is <i>FCML_FALSE</i> no broadcasting is applied.
+		</p>
+	</dd>
+	<dt>z</dt>
+	<dd>
+		<p>
+			Zeroing/merging masking flag (<i>{z}</i> decorator). When set to <i>FCML_TRUE</i> together with a non-zero opmask register, masked-out destination elements are written with zero rather than being preserved (zeroing masking). When <i>FCML_FALSE</i> the destination elements are preserved (merging masking).
+		</p>
+	</dd>
+	<dt>operand_mask_reg</dt>
+	<dd>
+		<p>
+			Opmask register used as a writemask for the operand (<i>{k1}</i>…<i>{k7}</i> decorator). A register of type <i>FCML_REG_OPMASK</i> identifies one of the eight predicate registers K0–K7 (use constants <i>FCML_REG_K0</i>…<i>FCML_REG_K7</i> for the register number). K0 effectively means no masking. When the type is <i>FCML_REG_UNDEFINED</i> no opmask is applied.
+		</p>
+	</dd>
+	<dt>er</dt>
+	<dd>
+		<p>
+			Nullable embedded rounding control (<i>{rn-sae}</i>, <i>{rd-sae}</i>, <i>{ru-sae}</i>, <i>{rz-sae}</i> decorators). Applicable to register-only instructions. The value maps to the <i>fcml_en_embeeded_rounding_control</i> enum:
+		</p>
+		<pre class="brush: cpp">
+typedef enum fcml_en_embeeded_rounding_control {
+    FCML_ERC_RNE, /* Round to nearest even  {rn-sae} */
+    FCML_ERC_RD,  /* Round down             {rd-sae} */
+    FCML_ERC_RU,  /* Round up               {ru-sae} */
+    FCML_ERC_RZ   /* Round towards zero     {rz-sae} */
+} fcml_en_embeeded_rounding_control;
+		</pre>
+		<p>
+			Convenience macros <i>FCML_ER_RN_SAE</i> (0), <i>FCML_ER_RD_SAE</i> (1), <i>FCML_ER_RU_SAE</i> (2) and <i>FCML_ER_RZ_SAE</i> (3) are also available. When <i>er.is_not_null</i> is <i>FCML_FALSE</i> no embedded rounding is applied.
+		</p>
+	</dd>
+	<dt>sae</dt>
+	<dd>
+		<p>
+			Suppress All Exceptions flag (<i>{sae}</i> decorator). When set to <i>FCML_TRUE</i> floating-point exceptions are suppressed for the instruction. This is typically encoded as a virtual operand (type <i>FCML_OT_VIRTUAL</i>) in the instruction's operand array.
+		</p>
+	</dd>
+</dl>
+<p>
+	The following example populates an operand for the instruction <span class="instruction">vaddps zmm0{k1}{z}, zmm1, zmm2</span>:
+</p>
+<pre class="brush: cpp">
+fcml_st_operand op = {0};
+op.type = FCML_OT_REGISTER;
+op.reg = fcml_reg_ZMM0;
+/* Opmask {k1} */
+op.decorators.operand_mask_reg = fcml_reg_K1;
+/* Zeroing masking {z} */
+op.decorators.z = FCML_TRUE;
+</pre>
 
 <h2 id="un-entry-point">Understanding entry point</h2>
 <p>
@@ -3810,6 +3899,7 @@ typedef struct fcml_st_instruction_details {
 	fcml_en_pseudo_operations pseudo_op;
 	fcml_uint16_t addr_mode;
 	fcml_uint64_t instruction_group;
+	fcml_uint8_t tuple_type;    /* AVX-512 tuple type for disp8*N */
 } fcml_st_instruction_details;
 </pre>
 
@@ -3853,17 +3943,25 @@ typedef struct fcml_st_prefixes_details {
 	fcml_bool is_xrelease;
 	fcml_bool is_xacquire;
 	fcml_bool is_vex;
+	fcml_bool is_evex;      /* AVX-512 */
 	fcml_bool is_xop;
+	fcml_bool is_avx;       /* any AVX prefix (VEX/XOP/EVEX) */
 	fcml_bool is_rex;
-	fcml_uint8_t vex_xop_first_byte;
-	fcml_uint8_t r;
-	fcml_uint8_t x;
-	fcml_uint8_t b;
-	fcml_uint8_t w;
-	fcml_uint8_t l;
+	fcml_uint8_t avx_first_byte;
+	fcml_uint8_t R;
+	fcml_uint8_t R_prim;    /* EVEX R' */
+	fcml_uint8_t X;
+	fcml_uint8_t B;
+	fcml_uint8_t b;         /* EVEX.b (broadcast/rounding control) */
+	fcml_uint8_t W;
+	fcml_uint8_t L;
+	fcml_uint8_t L_prim;    /* EVEX L' */
 	fcml_uint8_t mmmm;
 	fcml_uint8_t vvvv;
 	fcml_uint8_t pp;
+	fcml_uint8_t z;         /* EVEX.z (zeroing) */
+	fcml_uint8_t V_prim;    /* EVEX V' */
+	fcml_uint8_t aaa;       /* EVEX opmask register specifier */
 } fcml_st_prefixes_details;
 </pre>
 
@@ -3878,18 +3976,43 @@ typedef struct fcml_st_instruction_prefix {
 	fcml_uint8_t prefix;
 	fcml_en_prefix_types prefix_type;
 	fcml_bool mandatory_prefix;
-	fcml_uint8_t vex_xop_bytes[2];
+	fcml_uint8_t avx_bytes[3]; /* bytes 2-4 of VEX/XOP/EVEX prefix */
 } fcml_st_instruction_prefix;
 </pre>
 <p>
-	Every prefix consists of a <i><a href="api/structfcml__st__instruction__prefix.html#a634c5f1f9a8a7c3e8546a1670d6ca5f1">prefix</a></i> field which is a byte interpreted as a prefix, field <i><a href="api/structfcml__st__instruction__prefix.html#a74d9a35cc2ca9c3ae393e3b82fa90763">prefix_type</a></i> which is the type of the prefix (see below) and a <i><a href="api/structfcml__st__instruction__prefix.html#ac461fd85d0b504fc01978cbe1da23fe4">mandatory_prefix</a></i> flag which is set to <i>FCML_TRUE</i> for all mandatory prefixes (See Intel or AMD Architecture Manuals for more information about mandatory prefixes). The last field is <i><a href="api/structfcml__st__instruction__prefix.html#aa85fc9cca459b8fd9b6e10f0c75053bc">vex_xop_bytes</a></i> which is used in case of multi-byte VEX and XOP prefixes and contains second and the optionally third byte of the whole prefix.
+	The prefix type is one of the following:
+</p>
+<pre class="brush: cpp">
+typedef enum fcml_en_prefix_types {
+	FCML_PT_GROUP_UNKNOWN = 0,
+	FCML_PT_GROUP_1,
+	FCML_PT_GROUP_2,
+	FCML_PT_GROUP_3,
+	FCML_PT_GROUP_4,
+	FCML_PT_REX,
+	FCML_PT_VEX,
+	FCML_PT_XOP,
+	FCML_PT_EVEX   /* AVX-512 */
+} fcml_en_prefix_types;
+</pre>
+<p>
+	Every prefix consists of a <i>prefix</i> field which is a byte interpreted as a prefix, field <i>prefix_type</i> which is the type of the prefix and a <i>mandatory_prefix</i> flag which is set to <i>FCML_TRUE</i> for all mandatory prefixes (See Intel or AMD Architecture Manuals for more information about mandatory prefixes). The field <i>avx_bytes</i> holds the additional bytes of multi-byte VEX, XOP and EVEX prefixes.
 </p>
 <p>
-	There are use cases when you are not really interested in any details about specific prefixes, but you would like to know if they exists or not. You can achieve it using the following lookup fields: <i>is_branch</i>, <i>is_nobranch</i>, <i>is_lock</i>, <i>is_rep</i>, <i>is_repne</i>, <i>is_xrelease</i>, <i>is_xacquire</i>, <i>is_vex</i>, <i>is_xop</i>, <i>is_rex</i>.
+	There are use cases when you are not really interested in any details about specific prefixes, but you would like to know if they exists or not. You can achieve it using the boolean lookup fields. In addition to the previously documented fields, the following flags were added for AVX-512 (since 1.2.0): <i>is_evex</i> (EVEX prefix present), <i>is_avx</i> (any AVX-class prefix: VEX, XOP or EVEX).
 </p>
 <p>
-	The last category of fields exposed by <i><a href="api/structfcml__st__prefixes__details.html">fcml_st_prefixes_details</a></i> structure can be used to access common fields defined inside REX, XOP and VEX prefixes. These are: <i>r</i>, <i>x</i>, <i>b</i>, <i>w</i>, <i>l</i>, <i>mmmm</i> , <i>vvvv</i>, <i>pp</i>. It is a bit more advanced subject and if you are really interested in it do not hesitate to take a look at Intel or AMD Architecture Manuals, but you should not need it in the day-to-day usage.
+	The last category of fields exposed by <i><a href="api/structfcml__st__prefixes__details.html">fcml_st_prefixes_details</a></i> structure can be used to access decoded fields of REX, VEX, XOP and EVEX prefixes. The fields shared with previous prefix encodings (<i>R</i>, <i>X</i>, <i>B</i>, <i>W</i>, <i>L</i>, <i>mmmm</i>, <i>vvvv</i>, <i>pp</i>) retain their usual meaning. The following fields are EVEX-specific (since 1.2.0):
 </p>
+<dl>
+	<dt>R_prim</dt><dd>EVEX R' bit — extends the register operand encoded in ModR/M.reg to the high 16 registers.</dd>
+	<dt>L_prim</dt><dd>EVEX L' bit — together with L encodes the vector length (512-bit when L'=1, L=0).</dd>
+	<dt>V_prim</dt><dd>EVEX V' bit — extends the <i>vvvv</i> field to address YMM/ZMM 16–31.</dd>
+	<dt>b</dt><dd>EVEX.b bit — when set on a memory operand indicates broadcasting; on a register-only instruction activates embedded rounding / SAE.</dd>
+	<dt>z</dt><dd>EVEX.z bit — zeroing masking flag.</dd>
+	<dt>aaa</dt><dd>Embedded opmask register specifier (0–7), matching the K register used as the writemask.</dd>
+	<dt>avx_first_byte</dt><dd>The leading byte of the VEX/XOP/EVEX prefix (0x62 for EVEX, 0xC4/0xC5 for VEX, 0x8F for XOP).</dd>
+</dl>
 
 <h4 id="disassembler-analyse-operand-details">Operand details</h4>
 <p>
@@ -3905,10 +4028,13 @@ typedef struct fcml_st_decoded_modrm_details {
 	fcml_uint8_t modrm;
 	fcml_nuint8_t sib;
 	fcml_bool is_rip;
+	fcml_st_integer displacement;   /* raw encoded displacement */
+	fcml_nuint32_t N;               /* AVX-512 disp8*N scaling factor */
 } fcml_st_decoded_modrm_details;
 </pre>
 <p>
-	The first two fields are self-describable. The last one <i><a href="api/structfcml__st__decoded__modrm__details.html#ae6e35f2b5f97a4aac6287e04054c1f41">is_rip</a></i> is set to <i>FCML_TRUE</i> if the RIP addressing is used (only in 64-bit mode).
+	The first two fields are self-describable. The <i><a href="api/structfcml__st__decoded__modrm__details.html#ae6e35f2b5f97a4aac6287e04054c1f41">is_rip</a></i> field is set to <i>FCML_TRUE</i> if the RIP addressing is used (only in 64-bit mode).
+	The <i>displacement</i> field holds the raw encoded displacement value, and <i>N</i> is the AVX-512 EVEX compressed-displacement scaling factor (disp8&times;N). <i>N</i> is a nullable <i>fcml_nuint32_t</i>; it is set only when the instruction uses EVEX encoding with a disp8 displacement.
 </p>
 
 <h4 id="disassembler-analyse-fields">Instruction code and opcode fields</h4>
@@ -3979,6 +4105,8 @@ The last field <i><a href="api/structfcml__st__instruction__details.html#ab3268b
 #define 	FCML_AMT_AVX_SIMD   FCML_AMT_AVX | FCML_AMT_SIMD
 #define 	FCML_AMT_AVX2_SIMD   FCML_AMT_AVX2 | FCML_AMT_SIMD
 #define 	FCML_AMT_3DNOW_SIMD   FCML_AMT_3DNOW | FCML_AMT_SIMD
+#define 	FCML_AMT_AVX512   0x0000040000000000UL
+#define 	FCML_AMT_AVX512_SIMD   FCML_AMT_AVX512 | FCML_AMT_SIMD
 </pre>
 <p>
 	For instance CALL instruction is a member of the following groups: <i>FCML_AMT_GPI</i> (General purpose instruction), <i>FCML_AMT_CTI</i> (Controll transfer instruction), <i>FCML_AMT_BRANCH</i> (Branch instruction). 
@@ -4459,6 +4587,9 @@ if( reg == Register::AL() ) {
 <p>
     Unlike the .cpp file, .hpp header has to be visible in every source file which accesses the registers.
 </p>
+<p>
+    All general-purpose, segment, FPU, MMX, SSE/XMM, AVX/YMM, and AVX-512 registers are supported. This includes ZMM registers (<i>Register::ZMM0()</i>…<i>Register::ZMM31()</i>) and AVX-512 opmask (K) registers (<i>Register::K0()</i>…<i>Register::K7()</i>). The opmask registers have the register type <i>Register::REG_OPMASK</i>, and the extended XMM16–XMM31, YMM16–YMM31, and ZMM0–ZMM31 registers are only available with EVEX encoding.
+</p>
 
 <h2 id="cpp-generic-instruction-model">Generic instruction model</h2>
 <p>
@@ -4601,6 +4732,49 @@ Operand reg = OB::reg( ECX );
 Operand imm = OB::imm( 0x401000 );
 Operand farp = OB::far_ptr( 0x1020, (fcml_int16_t)0x3030 );
 </pre>
+
+<h3 id="cpp-generic-instruction-model-cpp-decorators">AVX-512 operand decorators</h3>
+<p>
+    Each <i><a href="api/classfcml_1_1Operand.html">fcml::Operand</a></i> carries a <i><a href="api/classfcml_1_1Decorators.html">fcml::Decorators</a></i> object that holds the AVX-512 per-operand attributes. The decorators are only meaningful for EVEX-encoded instructions (AVX-512).
+</p>
+<p>
+    The <i>Decorators</i> class exposes the following setter/getter pairs:
+</p>
+<dl>
+    <dt>setBcast / getBcast</dt>
+    <dd><p>Broadcasting factor as a nullable <i>fcml_uint8_t</i> (2, 4, 8, 16, 32, or 64). Corresponds to the <i>{1to2}</i>…<i>{1to64}</i> broadcast decorators.</p></dd>
+    <dt>setZ / isZ</dt>
+    <dd><p>Zeroing-masking flag. When <i>true</i>, the destination elements not covered by the opmask register are zeroed rather than merged.</p></dd>
+    <dt>setOpmaskReg / getOpmaskReg</dt>
+    <dd><p>The opmask register (<i>K0</i>–<i>K7</i>) used as a writemask for the operand. Pass a <i>Register</i> instance created with <i>Register::K1()</i>…<i>Register::K7()</i>.</p></dd>
+    <dt>setEr / getEr</dt>
+    <dd><p>Embedded rounding control as a nullable <i>EmbeededRoundingControl</i> enum value. The enum is defined inside the <i>Decorators</i> class:
+        <ul>
+            <li><i>Decorators::ERC_RNE</i> — round to nearest even</li>
+            <li><i>Decorators::ERC_RD</i> — round down (toward &minus;&infin;)</li>
+            <li><i>Decorators::ERC_RU</i> — round up (toward +&infin;)</li>
+            <li><i>Decorators::ERC_RZ</i> — round toward zero (truncate)</li>
+        </ul>
+    </p></dd>
+    <dt>setSae / isSae</dt>
+    <dd><p>Suppress All Exceptions flag. When <i>true</i>, floating-point exceptions are suppressed for the instruction.</p></dd>
+</dl>
+<p>
+    Decorators can be set directly on an operand via its <i>getDecorators()</i> method. The following example builds <span class="instruction">vaddps zmm0{k1}{z}, zmm1, zmm2</span> model:
+</p>
+<pre class="brush: cpp">
+#include &lt;fcml_registers.hpp&gt;
+#include &lt;fcml_registers.cpp&gt;
+
+Operand dst = OB::reg( ZMM0 );
+dst.getDecorators().setOpmaskReg( K1 );
+dst.getDecorators().setZ( FCML_TRUE );
+
+Instruction instruction = IB( M_VADDPS ) &lt;&lt; dst &lt;&lt; OB::reg( ZMM1 ) &lt;&lt; OB::reg( ZMM2 );
+</pre>
+<p>
+    Opmask registers <i>K0</i>–<i>K7</i> are available both as static factory methods (<i>Register::K0()</i>…<i>Register::K7()</i>) and as constants in <i>fcml_registers.hpp</i> (<i>fcml::K0</i>…<i>fcml::K7</i>). ZMM registers follow the same pattern: <i>Register::ZMM0()</i>…<i>Register::ZMM31()</i> or the constants <i>fcml::ZMM0</i>…<i>fcml::ZMM31</i>.
+</p>
 
 <h3 id="cpp-generic-instruction-model-cpp-instructions">Instructions</h3>
 <p>
@@ -5304,6 +5478,7 @@ RIP: 0x212a340 Code size: 0x00000158
 									<li><a href="#cpp-generic-instruction-model-cpp-addresses">Addresses</a></li>
 									<li><a href="#cpp-generic-instruction-model-cpp-conditions">Conditions</a></li>
 									<li><a href="#cpp-generic-instruction-model-cpp-operands">Operands</a></li>
+									<li><a href="#cpp-generic-instruction-model-cpp-decorators">AVX-512 operand decorators</a></li>
 									<li><a href="#cpp-generic-instruction-model-cpp-instructions">Instructions</a></li>
 								</ul>
 							</li>

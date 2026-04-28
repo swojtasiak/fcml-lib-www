@@ -1,6 +1,13 @@
 <map id="fcml_st_assembler_conf" name="fcml_st_assembler_conf">
-<area shape="rect" id="node2" href="$structfcml__st__chooser__context.html" title="Instruction chooser context used to communicate with environment. " alt="" coords="5,102,173,129"/>
-<area shape="rect" id="node3" href="$structfcml__st__instruction__code.html" title="An encoded instruction. " alt="" coords="6,5,173,32"/>
-<area shape="rect" id="node4" href="$structfcml__st__asm__optimizer__context.html" title="Optimizer context used as a connector with the environment. " alt="" coords="197,95,355,136"/>
-<area shape="rect" id="node5" href="$structfcml__st__entry__point.html" title="Describes address of an instruction code. " alt="" coords="208,5,344,32"/>
+<area shape="rect" id="Node000001" title="Assembler runtime configuration." alt="" coords="104,299,284,324"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__asm__optimizer__context.html" title="Optimizer context used as a connector with the environment." alt="" coords="5,196,180,236"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,243,183,296,179,300,122,247"/>
+<area shape="rect" id="Node000003" href="$structfcml__st__entry__point.html" title="Describes the execution context for the instruction being assembled." alt="" coords="17,108,168,133"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,147,95,196,90,196,90,147"/>
+<area shape="rect" id="Node000004" href="$structfcml__st__chooser__context.html" title="Instruction chooser context used to communicate with environment." alt="" coords="205,203,389,229"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="275,240,208,301,205,297,272,236"/>
+<area shape="rect" id="Node000005" href="$structfcml__st__instruction__code.html" title="An encoded instruction." alt="" coords="205,108,389,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="299,147,299,203,294,203,294,147"/>
+<area shape="rect" id="Node000006" href="$structfcml__st__assembled__instruction__details.html" title="Details describing an assembled instruction." alt="" coords="185,5,409,45"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="299,59,299,108,294,108,294,59"/>
 </map>

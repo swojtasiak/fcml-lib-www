@@ -1,6 +1,20 @@
 <map id="include/fcml_gas_dialect.h" name="include/fcml_gas_dialect.h">
-<area shape="rect" id="node2" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting. " alt="" coords="291,229,413,256"/>
-<area shape="rect" id="node3" href="$fcml__errors_8h.html" title="Global error handling related declarations. " alt="" coords="213,80,312,107"/>
-<area shape="rect" id="node8" href="$fcml__dialect_8h.html" title="Structures and functions related to dialects. " alt="" coords="301,155,403,181"/>
-<area shape="rect" id="node4" href="$fcml__types_8h.html" title="Types declarations. " alt="" coords="127,155,225,181"/>
+<area shape="rect" id="Node000001" title="AT&amp;T dialect implementation." alt="" coords="280,5,475,31"/>
+<area shape="rect" id="Node000002" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting." alt="" coords="310,225,445,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="388,30,420,80,437,115,449,151,452,165,449,178,433,202,412,220,408,216,429,198,444,176,447,165,444,153,432,117,415,83,384,32"/>
+<area shape="rect" id="Node000003" href="$fcml__errors_8h.html" title="Global error handling related declarations." alt="" coords="229,79,337,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="364,33,311,72,308,68,361,29"/>
+<area shape="rect" id="Node000008" href="$fcml__dialect_8h.html" title="Structures and functions related to dialects." alt="" coords="320,152,435,177"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="380,31,380,138,375,138,375,31"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="287,104,294,138,310,176,328,198,349,215,346,219,325,201,306,179,289,140,281,105"/>
+<area shape="rect" id="Node000004" href="$fcml__types_8h.html" title="Types declarations." alt="" coords="139,152,245,177"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="270,106,219,145,216,141,266,102"/>
+<area shape="poly" id="edge8_Node000004_Node000002" title=" " alt="" coords="223,175,335,218,334,223,221,180"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,225,80,251"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="169,180,81,222,78,217,167,175"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="105,225,175,251"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="186,179,159,216,154,213,181,176"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="199,225,286,251"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="203,176,229,213,224,216,198,179"/>
+<area shape="poly" id="edge10_Node000008_Node000002" title=" " alt="" coords="380,178,380,212,375,212,375,178"/>
 </map>

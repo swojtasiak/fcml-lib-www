@@ -1,9 +1,17 @@
 <map id="fcml::NonCopyable" name="fcml::NonCopyable">
-<area shape="rect" id="node2" href="$classfcml_1_1Assembler.html" title="An assembler wrapper. " alt="" coords="217,5,334,32"/>
-<area shape="rect" id="node3" href="$classfcml_1_1Dialect.html" title="An abstract dialect. " alt="" coords="227,56,323,83"/>
-<area shape="rect" id="node6" href="$classfcml_1_1Disassembler.html" title="Disassembler wrapper. " alt="" coords="208,107,343,133"/>
-<area shape="rect" id="node7" href="$classfcml_1_1MultiPassAssembler.html" title="An assembler wrapper, as you can see the assembler context is managed internally and is not exposed o..." alt="" coords="188,157,363,184"/>
-<area shape="rect" id="node8" href="$classfcml_1_1SymbolTable.html" title="fcml::SymbolTable" alt="" coords="210,208,341,235"/>
-<area shape="rect" id="node4" href="$classfcml_1_1GASDialect.html" title="Wraps the AT&amp;T dialect. " alt="" coords="411,31,535,57"/>
-<area shape="rect" id="node5" href="$classfcml_1_1IntelDialect.html" title="Wraps the Intel dialect. " alt="" coords="412,81,533,108"/>
+<area shape="rect" id="Node000001" title="Object which shouldn&#39;t be copied can inherit from this class." alt="" coords="5,104,152,129"/>
+<area shape="rect" id="Node000002" href="$classfcml_1_1Assembler.html" title="An assembler wrapper." alt="" coords="231,5,359,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,93,149,66,199,40,232,28,234,33,201,44,152,70,110,98"/>
+<area shape="rect" id="Node000003" href="$classfcml_1_1Dialect.html" title="An abstract dialect." alt="" coords="243,55,348,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,98,242,77,243,82,149,104"/>
+<area shape="rect" id="Node000006" href="$classfcml_1_1Disassembler.html" title="Disassembler wrapper." alt="" coords="221,104,369,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="166,114,221,114,221,119,166,119"/>
+<area shape="rect" id="Node000007" href="$classfcml_1_1MultiPassAssembler.html" title="An assembler wrapper, as you can see the assembler context is managed internally and is not exposed o..." alt="" coords="200,153,391,179"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="149,130,239,151,238,156,148,135"/>
+<area shape="rect" id="Node000008" href="$classfcml_1_1SymbolTable.html" title=" " alt="" coords="224,203,367,228"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="110,135,152,162,201,188,237,200,236,205,199,192,149,167,107,140"/>
+<area shape="rect" id="Node000004" href="$classfcml_1_1GASDialect.html" title="Wraps the AT&amp;T dialect." alt="" coords="440,31,572,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="361,57,439,48,440,53,362,63"/>
+<area shape="rect" id="Node000005" href="$classfcml_1_1IntelDialect.html" title="Wraps the Intel dialect." alt="" coords="439,80,573,105"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="362,73,439,82,438,87,361,78"/>
 </map>

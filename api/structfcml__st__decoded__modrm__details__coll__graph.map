@@ -1,6 +1,11 @@
 <map id="fcml_st_decoded_modrm_details" name="fcml_st_decoded_modrm_details">
-<area shape="rect" id="node2" href="$structfcml__nuint8__t.html" title="fcml_nuint8_t" alt="" coords="14,95,114,121"/>
-<area shape="rect" id="node3" href="$structfcml__st__raw__displacement.html" title="Displacement in raw form. " alt="" coords="138,95,315,121"/>
-<area shape="rect" id="node4" href="$structfcml__nuint32__t.html" title="fcml_nuint32_t" alt="" coords="107,5,213,32"/>
-<area shape="rect" id="node5" href="$structfcml__st__integer.html" title="fcml_st_integer" alt="" coords="238,5,349,32"/>
+<area shape="rect" id="Node000001" title="Some basic information about decoded ModR/M and SIB bytes." alt="" coords="5,181,192,221"/>
+<area shape="rect" id="Node000002" href="$structfcml__nuint8__t.html" title=" " alt="" coords="17,93,127,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,131,96,180,91,182,77,133"/>
+<area shape="rect" id="Node000003" href="$structfcml__st__raw__displacement.html" title="Displacement in raw form." alt="" coords="151,93,347,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,128,131,183,128,179,218,123"/>
+<area shape="rect" id="Node000004" href="$structfcml__st__integer.html" title=" " alt="" coords="116,5,239,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="188,42,202,68,230,91,227,95,198,71,183,45"/>
+<area shape="rect" id="Node000005" href="$structfcml__nuint32__t.html" title=" " alt="" coords="263,5,382,31"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="313,44,295,71,268,95,265,91,291,68,309,41"/>
 </map>

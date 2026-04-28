@@ -1,19 +1,99 @@
 <map id="include/fcml_stateful_disassembler.hpp" name="include/fcml_stateful_disassembler.hpp">
-<area shape="rect" id="node2" href="$fcml__disassembler_8hpp.html" title="C++ wrapper for the FCML disassembler. " alt="" coords="559,169,715,196"/>
-<area shape="rect" id="node28" href="$fcml__renderer_8hpp.html" title="C++ wrapper for FCML renderer. " alt="" coords="686,95,813,121"/>
-<area shape="rect" id="node4" href="$fcml__disassembler_8h.html" title="Structures and functions declarations related to FCML disassembler. " alt="" coords="875,543,1018,569"/>
-<area shape="rect" id="node14" href="$fcml__common_8hpp.html" title="C++ wrappers common classes. " alt="" coords="545,319,674,345"/>
-<area shape="rect" id="node26" href="$fcml__errors_8hpp.html" title="C++ wrapper for the FCML errors handling. " alt="" coords="40,244,152,271"/>
-<area shape="rect" id="node27" href="$fcml__dialect_8hpp.html" title="C++ wrapper for the base dialect. " alt="" coords="599,244,716,271"/>
-<area shape="rect" id="node5" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting. " alt="" coords="609,767,730,793"/>
-<area shape="rect" id="node6" href="$fcml__instructions_8h.html" title="Instruction codes and addressing modes/instruction forms. " alt="" coords="886,692,1018,719"/>
-<area shape="rect" id="node7" href="$fcml__types_8h.html" title="Types declarations. " alt="" coords="209,692,306,719"/>
-<area shape="rect" id="node11" href="$fcml__errors_8h.html" title="Global error handling related declarations. " alt="" coords="672,617,771,644"/>
-<area shape="rect" id="node12" href="$fcml__common_8h.html" title="Definitions of common structures used by FCML components. " alt="" coords="381,617,496,644"/>
-<area shape="rect" id="node13" href="$fcml__dialect_8h.html" title="Structures and functions related to dialects. " alt="" coords="1094,617,1197,644"/>
-<area shape="rect" id="node22" href="$fcml__common__utils_8h.html" title="Common general purpose utility functions. " alt="" coords="925,393,1072,420"/>
-<area shape="rect" id="node23" href="$fcml__assembler_8h.html" title="Structures and functions declarations related to one&#45;line FCML assembler. " alt="" coords="421,468,547,495"/>
-<area shape="rect" id="node24" href="$fcml__optimizers_8h.html" title="API for assembler optimizers. " alt="" coords="472,543,597,569"/>
-<area shape="rect" id="node25" href="$fcml__choosers_8h.html" title="API for instruction choosers. " alt="" coords="177,543,295,569"/>
-<area shape="rect" id="node29" href="$fcml__renderer_8h.html" title="Structures and functions declarations related to FCML renderers. " alt="" coords="1195,468,1307,495"/>
+<area shape="rect" id="Node000001" title="Stateful FCML disassembler implementation." alt="" coords="649,5,807,45"/>
+<area shape="rect" id="Node000002" href="$fcml__disassembler_8hpp.html" title="C++ wrapper for the FCML disassembler." alt="" coords="581,167,753,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="723,47,679,155,674,153,718,45"/>
+<area shape="rect" id="Node000028" href="$fcml__renderer_8hpp.html" title="C++ wrapper for FCML renderer." alt="" coords="717,93,857,119"/>
+<area shape="poly" id="edge60_Node000001_Node000028" title=" " alt="" coords="744,44,772,80,767,84,740,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="1157,387,1227,412"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="695,190,1152,379,1150,384,693,195"/>
+<area shape="rect" id="Node000004" href="$fcml__disassembler_8h.html" title="Structures and functions declarations related to FCML disassembler." alt="" coords="921,533,1077,559"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="603,195,478,224,410,245,347,270,295,299,275,315,261,333,253,350,252,369,258,389,273,410,301,429,342,442,393,448,449,451,562,452,648,457,811,493,946,527,944,532,810,498,648,463,562,458,449,457,392,454,341,447,298,434,269,414,253,391,246,370,248,349,257,330,271,312,292,295,344,265,408,240,477,218,601,189"/>
+<area shape="rect" id="Node000014" href="$fcml__common_8hpp.html" title="C++ wrappers common classes." alt="" coords="565,313,707,339"/>
+<area shape="poly" id="edge20_Node000002_Node000014" title=" " alt="" coords="652,194,630,214,613,241,610,256,612,271,623,300,618,302,607,272,605,256,608,239,626,211,649,190"/>
+<area shape="rect" id="Node000026" href="$fcml__errors_8hpp.html" title="C++ wrapper for the FCML errors handling." alt="" coords="33,240,157,265"/>
+<area shape="poly" id="edge52_Node000002_Node000026" title=" " alt="" coords="581,193,176,243,170,243,170,238,176,237,580,188"/>
+<area shape="rect" id="Node000027" href="$fcml__dialect_8hpp.html" title="C++ wrapper for the base dialect." alt="" coords="623,240,753,265"/>
+<area shape="poly" id="edge57_Node000002_Node000027" title=" " alt="" coords="673,192,683,226,678,228,668,193"/>
+<area shape="rect" id="Node000005" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting." alt="" coords="649,753,783,779"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="985,561,743,747,740,743,982,557"/>
+<area shape="rect" id="Node000006" href="$fcml__instructions_8h.html" title="Instruction codes and addressing modes/instruction forms." alt="" coords="931,680,1077,705"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="1002,559,1006,666,1000,666,996,559"/>
+<area shape="rect" id="Node000007" href="$fcml__types_8h.html" title="Types declarations." alt="" coords="227,680,333,705"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="980,561,907,602,840,635,773,652,705,666,569,684,445,693,347,695,347,690,445,687,568,679,704,661,772,647,838,629,905,598,978,557"/>
+<area shape="rect" id="Node000011" href="$fcml__errors_8h.html" title="Global error handling related declarations." alt="" coords="718,607,826,632"/>
+<area shape="poly" id="edge11_Node000004_Node000011" title=" " alt="" coords="963,561,823,605,821,600,961,556"/>
+<area shape="rect" id="Node000012" href="$fcml__common_8h.html" title="Definitions of common structures used by FCML components." alt="" coords="409,607,535,632"/>
+<area shape="poly" id="edge14_Node000004_Node000012" title=" " alt="" coords="921,560,549,610,549,605,920,555"/>
+<area shape="rect" id="Node000013" href="$fcml__dialect_8h.html" title="Structures and functions related to dialects." alt="" coords="1152,607,1267,632"/>
+<area shape="poly" id="edge18_Node000004_Node000013" title=" " alt="" coords="1033,556,1163,600,1162,605,1032,561"/>
+<area shape="poly" id="edge10_Node000007_Node000005" title=" " alt="" coords="334,700,635,749,634,754,333,705"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="348,753,423,779"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="298,703,358,743,356,748,295,708"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="142,753,213,779"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="265,708,207,747,204,743,262,703"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="237,753,323,779"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="283,706,283,740,277,740,277,706"/>
+<area shape="poly" id="edge12_Node000011_Node000005" title=" " alt="" coords="770,633,728,741,723,740,765,631"/>
+<area shape="poly" id="edge13_Node000011_Node000007" title=" " alt="" coords="718,631,347,684,346,679,718,626"/>
+<area shape="poly" id="edge15_Node000012_Node000005" title=" " alt="" coords="491,630,609,703,684,745,681,749,607,708,488,634"/>
+<area shape="poly" id="edge17_Node000012_Node000006" title=" " alt="" coords="536,626,918,677,917,682,535,632"/>
+<area shape="poly" id="edge16_Node000012_Node000007" title=" " alt="" coords="442,635,325,677,323,672,440,630"/>
+<area shape="poly" id="edge19_Node000013_Node000005" title=" " alt="" coords="1205,634,1178,671,1158,691,1135,708,1108,719,1072,728,984,744,798,762,797,757,983,738,1071,723,1106,714,1132,703,1155,687,1174,668,1201,631"/>
+<area shape="poly" id="edge22_Node000014_Node000003" title=" " alt="" coords="708,330,900,350,1144,384,1143,389,900,355,707,336"/>
+<area shape="poly" id="edge29_Node000014_Node000007" title=" " alt="" coords="565,335,401,353,324,369,294,378,272,389,225,423,192,459,182,479,176,502,173,528,175,559,176,597,179,613,189,630,212,654,239,672,236,676,208,658,185,634,174,615,171,598,169,559,168,528,171,501,177,477,188,456,221,419,269,384,292,373,323,364,400,348,564,330"/>
+<area shape="poly" id="edge51_Node000014_Node000011" title=" " alt="" coords="644,337,663,371,689,410,721,444,752,467,779,492,791,509,803,532,806,549,804,566,791,596,786,594,798,565,800,549,797,534,787,512,775,495,748,471,718,448,685,414,658,374,640,340"/>
+<area shape="poly" id="edge30_Node000014_Node000012" title=" " alt="" coords="635,340,618,376,604,397,587,414,564,427,542,433,499,433,479,433,461,436,443,445,426,462,421,473,417,493,419,521,428,558,438,578,452,595,447,598,434,580,423,560,413,522,412,492,416,471,422,458,440,440,459,431,479,428,499,428,541,428,562,422,584,410,600,393,613,374,630,338"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="801,387,871,412"/>
+<area shape="poly" id="edge21_Node000014_Node000015" title=" " alt="" coords="669,336,791,379,789,384,667,341"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="895,387,945,412"/>
+<area shape="poly" id="edge23_Node000014_Node000016" title=" " alt="" coords="689,336,883,384,882,389,687,341"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="283,387,363,412"/>
+<area shape="poly" id="edge24_Node000014_Node000017" title=" " alt="" coords="586,341,377,389,375,383,585,336"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="387,387,461,412"/>
+<area shape="poly" id="edge25_Node000014_Node000018" title=" " alt="" coords="603,341,472,385,470,380,601,336"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="486,387,573,412"/>
+<area shape="poly" id="edge26_Node000014_Node000019" title=" " alt="" coords="620,341,560,381,557,377,617,336"/>
+<area shape="rect" id="Node000020" title=" " alt="" coords="699,387,776,412"/>
+<area shape="poly" id="edge27_Node000014_Node000020" title=" " alt="" coords="654,336,711,376,708,381,651,341"/>
+<area shape="rect" id="Node000021" title=" " alt="" coords="94,387,157,412"/>
+<area shape="poly" id="edge28_Node000014_Node000021" title=" " alt="" coords="565,340,170,394,170,389,564,335"/>
+<area shape="rect" id="Node000022" href="$fcml__common__utils_8h.html" title="Common general purpose utility functions." alt="" coords="969,387,1132,412"/>
+<area shape="poly" id="edge31_Node000014_Node000022" title=" " alt="" coords="703,336,971,382,970,387,702,341"/>
+<area shape="poly" id="edge49_Node000022_Node000004" title=" " alt="" coords="1049,413,1010,521,1005,520,1044,412"/>
+<area shape="poly" id="edge32_Node000022_Node000005" title=" " alt="" coords="1062,411,1096,466,1111,504,1117,544,1117,621,1116,669,1108,688,1091,707,1070,721,1040,732,964,748,878,759,797,764,797,759,877,753,963,743,1039,726,1067,716,1088,703,1103,685,1110,667,1112,621,1112,545,1106,505,1092,468,1058,414"/>
+<area shape="poly" id="edge50_Node000022_Node000006" title=" " alt="" coords="1131,409,1295,435,1361,448,1393,458,1397,472,1393,486,1381,534,1367,571,1345,603,1308,634,1270,651,1216,665,1092,685,1091,680,1214,660,1269,646,1305,630,1341,599,1362,568,1375,532,1388,485,1392,472,1389,462,1360,453,1294,440,1130,415"/>
+<area shape="poly" id="edge33_Node000022_Node000012" title=" " alt="" coords="970,413,958,415,693,425,531,438,473,449,454,455,443,462,434,476,429,492,431,528,444,564,459,594,454,596,439,566,426,529,424,492,429,474,439,458,452,450,472,443,530,433,692,420,957,409,969,408"/>
+<area shape="rect" id="Node000023" href="$fcml__assembler_8h.html" title="Structures and functions declarations related to one&#45;line FCML assembler." alt="" coords="454,460,591,485"/>
+<area shape="poly" id="edge34_Node000022_Node000023" title=" " alt="" coords="970,414,605,463,605,458,969,409"/>
+<area shape="poly" id="edge35_Node000023_Node000005" title=" " alt="" coords="575,483,618,501,639,515,657,532,674,556,688,584,707,641,716,696,719,739,713,740,711,697,702,642,683,586,670,559,653,535,636,519,616,506,573,488"/>
+<area shape="poly" id="edge36_Node000023_Node000007" title=" " alt="" coords="454,479,380,484,301,494,232,511,207,522,190,535,181,552,180,569,184,587,194,606,223,641,255,669,251,673,219,645,190,609,179,589,174,570,176,550,186,532,204,517,230,506,300,489,380,479,454,473"/>
+<area shape="poly" id="edge37_Node000023_Node000011" title=" " alt="" coords="582,483,641,501,700,531,734,561,759,594,755,597,730,565,697,536,639,506,580,488"/>
+<area shape="poly" id="edge38_Node000023_Node000012" title=" " alt="" coords="518,487,494,534,479,594,474,592,490,532,513,484"/>
+<area shape="poly" id="edge39_Node000023_Node000013" title=" " alt="" coords="592,474,856,492,992,509,1048,519,1090,531,1119,544,1146,561,1189,595,1186,599,1143,565,1116,549,1088,536,1047,524,992,514,855,497,591,480"/>
+<area shape="rect" id="Node000024" href="$fcml__optimizers_8h.html" title="API for assembler optimizers." alt="" coords="504,533,643,559"/>
+<area shape="poly" id="edge40_Node000023_Node000024" title=" " alt="" coords="533,484,559,521,555,524,529,487"/>
+<area shape="rect" id="Node000025" href="$fcml__choosers_8h.html" title="API for instruction choosers." alt="" coords="200,533,328,559"/>
+<area shape="poly" id="edge45_Node000023_Node000025" title=" " alt="" coords="482,488,320,532,318,527,480,483"/>
+<area shape="poly" id="edge41_Node000024_Node000005" title=" " alt="" coords="581,558,613,622,663,704,696,742,692,745,659,707,608,624,576,560"/>
+<area shape="poly" id="edge42_Node000024_Node000007" title=" " alt="" coords="576,559,571,596,563,616,550,634,515,653,464,667,348,687,347,682,462,662,513,648,546,630,558,614,566,595,571,559"/>
+<area shape="poly" id="edge43_Node000024_Node000011" title=" " alt="" coords="606,556,727,599,726,604,604,561"/>
+<area shape="poly" id="edge44_Node000024_Node000012" title=" " alt="" coords="559,561,501,601,498,596,556,556"/>
+<area shape="poly" id="edge46_Node000025_Node000005" title=" " alt="" coords="282,557,332,591,397,630,470,666,545,698,670,746,669,751,543,703,468,671,395,634,330,595,279,561"/>
+<area shape="poly" id="edge47_Node000025_Node000007" title=" " alt="" coords="268,559,280,666,275,667,263,559"/>
+<area shape="poly" id="edge48_Node000025_Node000012" title=" " alt="" coords="298,556,426,600,424,605,297,561"/>
+<area shape="poly" id="edge54_Node000026_Node000007" title=" " alt="" coords="83,267,61,290,36,320,16,358,10,377,8,398,8,547,13,579,28,605,51,627,80,645,112,659,147,669,213,683,212,688,145,675,110,664,77,649,48,631,24,608,8,580,3,548,3,398,5,376,11,356,32,318,57,286,79,264"/>
+<area shape="poly" id="edge55_Node000026_Node000011" title=" " alt="" coords="91,266,79,295,68,334,67,375,73,394,83,410,100,424,123,435,181,448,252,453,330,452,486,447,553,449,605,457,645,471,675,484,703,503,733,532,753,562,767,592,762,594,749,564,729,535,699,507,673,489,643,476,603,463,553,454,487,452,331,458,252,458,180,454,121,440,98,429,79,414,68,396,62,376,63,333,74,294,86,264"/>
+<area shape="poly" id="edge56_Node000026_Node000014" title=" " alt="" coords="157,259,551,311,551,316,156,265"/>
+<area shape="poly" id="edge53_Node000026_Node000021" title=" " alt="" coords="100,265,123,373,117,374,95,266"/>
+<area shape="poly" id="edge59_Node000027_Node000013" title=" " alt="" coords="754,257,877,272,1025,297,1095,314,1158,334,1209,358,1242,385,1246,397,1246,418,1239,475,1217,594,1212,593,1234,474,1240,418,1240,398,1238,388,1206,362,1156,339,1094,319,1023,302,877,277,753,262"/>
+<area shape="poly" id="edge58_Node000027_Node000014" title=" " alt="" coords="682,267,655,304,650,301,677,264"/>
+<area shape="poly" id="edge62_Node000028_Node000002" title=" " alt="" coords="769,121,700,162,697,157,766,116"/>
+<area shape="poly" id="edge61_Node000028_Node000014" title=" " alt="" coords="791,119,794,147,794,186,786,228,767,267,738,294,703,311,701,306,735,289,763,264,781,227,788,186,789,148,786,119"/>
+<area shape="rect" id="Node000029" href="$fcml__renderer_8h.html" title="Structures and functions declarations related to FCML renderers." alt="" coords="1254,460,1378,485"/>
+<area shape="poly" id="edge63_Node000028_Node000029" title=" " alt="" coords="857,109,990,122,1066,133,1141,148,1210,166,1266,189,1288,202,1304,217,1315,233,1319,251,1319,327,1319,446,1313,446,1313,327,1313,252,1310,235,1300,221,1284,207,1263,194,1208,171,1140,153,1065,139,989,128,857,114"/>
+<area shape="poly" id="edge68_Node000029_Node000004" title=" " alt="" coords="1266,488,1064,533,1062,528,1264,483"/>
+<area shape="poly" id="edge64_Node000029_Node000005" title=" " alt="" coords="1323,485,1337,533,1340,563,1337,588,1327,610,1309,634,1276,665,1245,683,1167,708,1070,733,970,750,876,760,797,765,797,760,876,755,969,744,1069,728,1166,703,1243,678,1273,660,1305,630,1323,607,1332,586,1335,563,1332,534,1318,486"/>
+<area shape="poly" id="edge65_Node000029_Node000007" title=" " alt="" coords="1320,485,1321,516,1318,556,1306,599,1295,618,1280,634,1238,645,1149,655,882,672,347,692,347,687,881,667,1149,650,1237,640,1277,630,1291,615,1301,596,1313,555,1316,516,1315,486"/>
+<area shape="poly" id="edge66_Node000029_Node000011" title=" " alt="" coords="1254,478,1182,482,1095,492,1002,509,910,536,848,566,799,600,796,596,846,562,908,531,1000,504,1094,487,1182,477,1254,473"/>
+<area shape="poly" id="edge67_Node000029_Node000013" title=" " alt="" coords="1309,487,1228,597,1224,594,1305,484"/>
 </map>

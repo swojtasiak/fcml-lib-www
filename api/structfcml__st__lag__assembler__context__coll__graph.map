@@ -1,7 +1,16 @@
 <map id="fcml_st_lag_assembler_context" name="fcml_st_lag_assembler_context">
-<area shape="rect" id="node2" href="$structfcml__st__assembler__conf.html" title="Assembler runtime configuration. " alt="" coords="190,199,354,225"/>
-<area shape="rect" id="node3" href="$structfcml__st__chooser__context.html" title="Instruction chooser context used to communicate with environment. " alt="" coords="5,102,173,129"/>
-<area shape="rect" id="node4" href="$structfcml__st__instruction__code.html" title="An encoded instruction. " alt="" coords="6,5,173,32"/>
-<area shape="rect" id="node5" href="$structfcml__st__asm__optimizer__context.html" title="Optimizer context used as a connector with the environment. " alt="" coords="197,95,355,136"/>
-<area shape="rect" id="node6" href="$structfcml__st__entry__point.html" title="Describes address of an instruction code. " alt="" coords="273,5,409,32"/>
+<area shape="rect" id="Node000001" title="Load&#45;and&#45;go assembler runtime context." alt="" coords="5,387,177,427"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__assembler__conf.html" title="Assembler runtime configuration." alt="" coords="87,299,267,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,336,111,388,107,385,155,332"/>
+<area shape="rect" id="Node000003" href="$structfcml__st__asm__optimizer__context.html" title="Optimizer context used as a connector with the environment." alt="" coords="87,196,261,236"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,249,179,298,174,298,172,249"/>
+<area shape="rect" id="Node000004" href="$structfcml__st__entry__point.html" title="Describes the execution context for the instruction being assembled." alt="" coords="16,108,167,133"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="87,147,77,196,72,260,77,324,89,386,83,387,71,324,67,260,71,196,81,146"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="113,142,159,194,155,198,109,146"/>
+<area shape="rect" id="Node000005" href="$structfcml__st__chooser__context.html" title="Instruction chooser context used to communicate with environment." alt="" coords="286,203,470,229"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="342,237,203,301,200,296,340,232"/>
+<area shape="rect" id="Node000006" href="$structfcml__st__instruction__code.html" title="An encoded instruction." alt="" coords="286,108,470,133"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="381,147,381,203,375,203,375,147"/>
+<area shape="rect" id="Node000007" href="$structfcml__st__assembled__instruction__details.html" title="Details describing an assembled instruction." alt="" coords="266,5,490,45"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="381,59,381,108,375,108,375,59"/>
 </map>

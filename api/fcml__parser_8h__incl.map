@@ -1,9 +1,32 @@
 <map id="include/fcml_parser.h" name="include/fcml_parser.h">
-<area shape="rect" id="node2" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting. " alt="" coords="360,304,481,331"/>
-<area shape="rect" id="node3" href="$fcml__types_8h.html" title="Types declarations. " alt="" coords="95,229,192,256"/>
-<area shape="rect" id="node7" href="$fcml__errors_8h.html" title="Global error handling related declarations. " alt="" coords="181,155,279,181"/>
-<area shape="rect" id="node8" href="$fcml__common_8h.html" title="Definitions of common structures used by FCML components. " alt="" coords="303,155,418,181"/>
-<area shape="rect" id="node10" href="$fcml__dialect_8h.html" title="Structures and functions related to dialects. " alt="" coords="453,80,556,107"/>
-<area shape="rect" id="node11" href="$fcml__symbols_8h.html" title="API for symbols handling. " alt="" coords="314,80,429,107"/>
-<area shape="rect" id="node9" href="$fcml__instructions_8h.html" title="Instruction codes and addressing modes/instruction forms. " alt="" coords="319,229,451,256"/>
+<area shape="rect" id="Node000001" title="Structures and functions declarations related to FCML parsers." alt="" coords="259,5,420,31"/>
+<area shape="rect" id="Node000002" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting." alt="" coords="380,299,515,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="421,24,530,42,576,57,593,66,605,77,631,100,639,108,640,119,632,136,614,161,537,253,512,276,485,294,482,290,509,272,533,249,610,157,628,133,635,118,634,110,627,103,602,81,590,71,574,62,529,48,420,29"/>
+<area shape="rect" id="Node000003" href="$fcml__types_8h.html" title="Types declarations." alt="" coords="101,225,207,251"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="320,33,251,80,213,114,180,153,167,183,160,212,154,211,162,181,176,151,209,110,248,75,317,28"/>
+<area shape="rect" id="Node000007" href="$fcml__errors_8h.html" title="Global error handling related declarations." alt="" coords="191,152,299,177"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="334,33,262,142,258,139,329,30"/>
+<area shape="rect" id="Node000008" href="$fcml__common_8h.html" title="Definitions of common structures used by FCML components." alt="" coords="323,152,449,177"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="334,32,317,65,314,84,318,103,333,125,354,142,351,146,329,128,313,105,309,84,312,63,329,30"/>
+<area shape="rect" id="Node000010" href="$fcml__dialect_8h.html" title="Structures and functions related to dialects." alt="" coords="477,79,591,104"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="372,28,490,71,489,76,370,33"/>
+<area shape="rect" id="Node000011" href="$fcml__symbols_8h.html" title="API for symbols handling." alt="" coords="327,79,453,104"/>
+<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="350,29,376,66,372,69,346,33"/>
+<area shape="poly" id="edge6_Node000003_Node000002" title=" " alt="" coords="202,248,387,293,386,298,201,253"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="117,299,191,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="157,251,157,285,151,285,151,251"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="216,299,287,324"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="171,249,226,288,223,292,168,253"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,299,92,324"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="139,253,78,293,76,289,136,248"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="254,176,277,212,313,249,354,274,396,292,394,296,351,278,310,253,273,215,249,179"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="232,179,181,219,178,214,228,175"/>
+<area shape="poly" id="edge11_Node000008_Node000002" title=" " alt="" coords="367,180,347,194,329,211,319,231,319,240,323,249,348,275,380,292,378,296,345,279,318,252,314,241,314,229,325,208,344,190,364,175"/>
+<area shape="poly" id="edge12_Node000008_Node000003" title=" " alt="" coords="350,180,205,224,204,219,348,175"/>
+<area shape="rect" id="Node000009" href="$fcml__instructions_8h.html" title="Instruction codes and addressing modes/instruction forms." alt="" coords="333,225,479,251"/>
+<area shape="poly" id="edge13_Node000008_Node000009" title=" " alt="" coords="392,177,402,211,397,213,387,178"/>
+<area shape="poly" id="edge15_Node000010_Node000002" title=" " alt="" coords="538,104,536,169,529,211,514,252,498,274,478,292,475,288,494,271,509,249,524,210,531,169,532,104"/>
+<area shape="poly" id="edge17_Node000011_Node000002" title=" " alt="" coords="410,102,437,123,463,150,484,185,494,225,496,238,494,251,484,272,471,290,466,287,479,269,489,250,491,238,489,226,479,187,459,154,433,127,407,106"/>
+<area shape="poly" id="edge19_Node000011_Node000007" title=" " alt="" coords="368,106,282,148,279,144,365,102"/>
+<area shape="poly" id="edge18_Node000011_Node000008" title=" " alt="" coords="392,104,390,139,385,138,387,104"/>
 </map>

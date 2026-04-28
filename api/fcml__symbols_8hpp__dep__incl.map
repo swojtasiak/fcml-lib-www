@@ -1,5 +1,9 @@
 <map id="include/fcml_symbols.hpp" name="include/fcml_symbols.hpp">
-<area shape="rect" id="node2" href="$fcml__lag__assembler_8hpp.html" title="C++ wrapper for the Multi&#45;pass FCML assembler. " alt="" coords="5,80,213,107"/>
-<area shape="rect" id="node3" href="$fcml__parser_8hpp.html" title="C++ wrapper for instruction parser. " alt="" coords="237,80,397,107"/>
-<area shape="rect" id="node4" href="$fcml__stateful__assembler_8hpp.html" title="Stateful FCML assembler implementation. " alt="" coords="246,155,389,196"/>
+<area shape="rect" id="Node000001" title="C++ API for symbols handling." alt="" coords="138,5,330,31"/>
+<area shape="rect" id="Node000002" href="$fcml__lag__assembler_8hpp.html" title="C++ wrapper for the Multi&#45;pass FCML assembler." alt="" coords="5,79,236,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,40,141,81,138,76,202,36"/>
+<area shape="rect" id="Node000003" href="$fcml__parser_8hpp.html" title="C++ wrapper for instruction parser." alt="" coords="260,79,437,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="265,35,331,76,329,81,262,40"/>
+<area shape="rect" id="Node000004" href="$fcml__stateful__assembler_8hpp.html" title="Stateful FCML assembler implementation." alt="" coords="269,152,428,192"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="351,118,351,152,346,152,346,118"/>
 </map>

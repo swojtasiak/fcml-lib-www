@@ -1,3 +1,5 @@
 <map id="fcml_st_parser_context" name="fcml_st_parser_context">
-<area shape="rect" id="node2" href="$structfcml__st__parser__config.html" title="Parser configuration. " alt="" coords="9,5,160,32"/>
+<area shape="rect" id="Node000001" title="Parser runtime context." alt="" coords="5,93,180,119"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__parser__config.html" title="Parser configuration." alt="" coords="11,5,175,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,45,95,93,90,93,90,45"/>
 </map>

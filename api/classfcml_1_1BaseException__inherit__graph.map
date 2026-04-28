@@ -1,12 +1,23 @@
 <map id="fcml::BaseException" name="fcml::BaseException">
-<area shape="rect" id="node2" href="$classfcml_1_1BadArgumentException.html" title="Bad arguments. " alt="" coords="203,5,395,32"/>
-<area shape="rect" id="node3" href="$classfcml_1_1ErrorContainerAwareException.html" title="Base class for all exceptions that are aware of ErrorContainer. " alt="" coords="211,57,387,98"/>
-<area shape="rect" id="node7" href="$classfcml_1_1IllegalArgumentException.html" title="Illegal argument exception. " alt="" coords="198,123,401,149"/>
-<area shape="rect" id="node8" href="$classfcml_1_1IllegalStateException.html" title="Illegal state exception. " alt="" coords="210,173,389,200"/>
-<area shape="rect" id="node9" href="$classfcml_1_1InitException.html" title="Component can not be initialized correctly. " alt="" coords="234,224,365,251"/>
-<area shape="rect" id="node10" href="$classfcml_1_1OperationNotSupportedException.html" title="Operation is not supported. " alt="" coords="204,275,395,317"/>
-<area shape="rect" id="node11" href="$classfcml_1_1RenderingFailedException.html" title="Component can not be initialized correctly. " alt="" coords="196,341,403,368"/>
-<area shape="rect" id="node4" href="$classfcml_1_1AssemblingFailedException.html" title="Assembling failed. " alt="" coords="451,5,667,32"/>
-<area shape="rect" id="node5" href="$classfcml_1_1DisassemblingFailedException.html" title="Component can not be initialized correctly. " alt="" coords="471,57,647,98"/>
-<area shape="rect" id="node6" href="$classfcml_1_1ParsingFailedException.html" title="Something failed while parsing. " alt="" coords="463,123,655,149"/>
+<area shape="rect" id="Node000001" title="Base exception for all exceptions exposed by FCML library." alt="" coords="5,169,160,195"/>
+<area shape="rect" id="Node000002" href="$classfcml_1_1BadArgumentException.html" title="Bad arguments." alt="" coords="215,5,427,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,156,141,98,172,67,207,41,235,28,237,33,209,46,175,71,145,101,101,159"/>
+<area shape="rect" id="Node000003" href="$classfcml_1_1ErrorContainerAwareException.html" title="Base class for all exceptions that are aware of ErrorContainer." alt="" coords="224,55,419,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="112,159,156,132,207,106,242,93,244,98,209,111,159,137,115,164"/>
+<area shape="rect" id="Node000007" href="$classfcml_1_1IllegalArgumentException.html" title="Illegal argument exception." alt="" coords="208,120,435,145"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="157,164,258,143,260,148,158,169"/>
+<area shape="rect" id="Node000008" href="$classfcml_1_1IllegalStateException.html" title="Illegal state exception." alt="" coords="223,169,420,195"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="174,179,223,179,223,185,174,185"/>
+<area shape="rect" id="Node000009" href="$classfcml_1_1InitException.html" title="Component can not be initialized correctly." alt="" coords="249,219,393,244"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="158,195,260,216,258,221,157,200"/>
+<area shape="rect" id="Node000010" href="$classfcml_1_1OperationNotSupportedException.html" title="Operation is not supported." alt="" coords="215,269,427,309"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="114,200,158,228,209,254,241,266,239,271,207,259,155,232,112,205"/>
+<area shape="rect" id="Node000011" href="$classfcml_1_1RenderingFailedException.html" title="Component can not be initialized correctly." alt="" coords="208,333,435,359"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="101,205,145,263,175,293,209,318,237,331,235,336,207,323,172,297,141,266,97,208"/>
+<area shape="rect" id="Node000004" href="$classfcml_1_1AssemblingFailedException.html" title="Assembling failed." alt="" coords="483,5,720,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="432,50,538,28,539,33,433,55"/>
+<area shape="rect" id="Node000005" href="$classfcml_1_1DisassemblingFailedException.html" title="Component can not be initialized correctly." alt="" coords="505,55,698,95"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="433,73,504,73,504,78,433,78"/>
+<area shape="rect" id="Node000006" href="$classfcml_1_1ParsingFailedException.html" title="Something failed while parsing." alt="" coords="497,120,705,145"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="433,95,539,117,538,123,432,101"/>
 </map>

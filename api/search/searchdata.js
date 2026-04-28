@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   7: "acfor",
   8: "mo",
   9: "f",
-  10: "cefgirst"
+  10: "bcdefgimoprstuv"
 };
 
 var indexSectionNames =

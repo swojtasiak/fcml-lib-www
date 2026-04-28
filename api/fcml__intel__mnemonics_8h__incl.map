@@ -1,4 +1,13 @@
 <map id="include/fcml_intel_mnemonics.h" name="include/fcml_intel_mnemonics.h">
-<area shape="rect" id="node2" href="$fcml__types_8h.html" title="Types declarations. " alt="" coords="131,95,229,121"/>
-<area shape="rect" id="node6" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting. " alt="" coords="291,169,413,196"/>
+<area shape="rect" id="Node000001" title="Declarations of Intel mnemonics for C." alt="" coords="121,5,260,45"/>
+<area shape="rect" id="Node000002" href="$fcml__types_8h.html" title="Types declarations." alt="" coords="137,93,244,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,46,193,79,188,79,188,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,80,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="168,121,80,163,78,158,166,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="105,167,175,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="184,121,158,157,154,154,180,117"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="199,167,286,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="201,117,228,154,224,157,197,121"/>
+<area shape="rect" id="Node000006" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting." alt="" coords="310,167,445,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="222,116,335,159,333,164,220,121"/>
 </map>

@@ -1,4 +1,7 @@
 <map id="fcml_st_raw_displacement" name="fcml_st_raw_displacement">
-<area shape="rect" id="node2" href="$structfcml__nuint32__t.html" title="fcml_nuint32_t" alt="" coords="5,5,112,32"/>
-<area shape="rect" id="node3" href="$structfcml__st__integer.html" title="fcml_st_integer" alt="" coords="137,5,247,32"/>
+<area shape="rect" id="Node000001" title="Displacement in raw form." alt="" coords="41,93,237,119"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__integer.html" title=" " alt="" coords="5,5,128,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,42,91,68,120,91,116,95,87,71,72,45"/>
+<area shape="rect" id="Node000003" href="$structfcml__nuint32__t.html" title=" " alt="" coords="153,5,271,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,44,185,71,158,95,154,91,181,68,198,41"/>
 </map>

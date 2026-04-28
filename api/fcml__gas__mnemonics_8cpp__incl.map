@@ -1,5 +1,15 @@
 <map id="include/fcml_gas_mnemonics.cpp" name="include/fcml_gas_mnemonics.cpp">
-<area shape="rect" id="node2" href="$fcml__gas__mnemonics_8hpp.html" title="Declarations of AT&amp;T mnemonics for C++. " alt="" coords="93,80,267,107"/>
-<area shape="rect" id="node3" href="$fcml__types_8h.html" title="Types declarations. " alt="" coords="131,155,229,181"/>
-<area shape="rect" id="node7" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting. " alt="" coords="291,229,413,256"/>
+<area shape="rect" id="Node000001" title="Definitions of AT&amp;T mnemonics for C++." alt="" coords="69,5,312,31"/>
+<area shape="rect" id="Node000002" href="$fcml__gas__mnemonics_8hpp.html" title="Declarations of AT&amp;T mnemonics for C++." alt="" coords="95,79,287,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,31,193,65,188,65,188,31"/>
+<area shape="rect" id="Node000003" href="$fcml__types_8h.html" title="Types declarations." alt="" coords="137,152,244,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="193,104,193,138,188,138,188,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,80,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="168,180,80,222,78,217,166,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="105,225,175,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="184,179,158,216,154,213,180,176"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="199,225,286,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="201,176,228,213,224,216,197,179"/>
+<area shape="rect" id="Node000007" href="$fcml__lib__export_8h.html" title="Handles Win32 DLL symbols importing/exporting." alt="" coords="310,225,445,251"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="222,175,335,218,333,223,220,180"/>
 </map>

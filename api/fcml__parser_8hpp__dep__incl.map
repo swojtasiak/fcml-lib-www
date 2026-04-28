@@ -1,3 +1,5 @@
 <map id="include/fcml_parser.hpp" name="include/fcml_parser.hpp">
-<area shape="rect" id="node2" href="$fcml__stateful__assembler_8hpp.html" title="Stateful FCML assembler implementation. " alt="" coords="14,80,157,121"/>
+<area shape="rect" id="Node000001" title="C++ wrapper for instruction parser." alt="" coords="5,5,183,31"/>
+<area shape="rect" id="Node000002" href="$fcml__stateful__assembler_8hpp.html" title="Stateful FCML assembler implementation." alt="" coords="15,79,173,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,44,97,79,91,79,91,44"/>
 </map>

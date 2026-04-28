@@ -1,4 +1,7 @@
 <map id="fcml_st_disassembler_context" name="fcml_st_disassembler_context">
-<area shape="rect" id="node2" href="$structfcml__st__disassembler__conf.html" title="Disassembler configuration. " alt="" coords="5,5,187,32"/>
-<area shape="rect" id="node3" href="$structfcml__st__entry__point.html" title="Describes address of an instruction code. " alt="" coords="211,5,347,32"/>
+<area shape="rect" id="Node000001" title="Disassembler context." alt="" coords="121,93,285,133"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__disassembler__conf.html" title="Disassembler configuration." alt="" coords="5,5,204,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,38,185,91,181,95,125,42"/>
+<area shape="rect" id="Node000003" href="$structfcml__st__entry__point.html" title="Describes the execution context for the instruction being assembled." alt="" coords="228,5,379,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="284,42,254,71,227,95,224,91,251,67,281,38"/>
 </map>

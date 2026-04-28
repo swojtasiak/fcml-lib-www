@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['constants_20used_20to_20describe_20data_20size_2e',['Constants used to describe data size.',['../group__DATA__SIZE__GROUP.html',1,'']]]
+  ['be_20used_20in_20order_20to_0',['These values can be used in order to',['../group__SUPPORTED__SIZE__GROUP.html',1,'']]]
 ];

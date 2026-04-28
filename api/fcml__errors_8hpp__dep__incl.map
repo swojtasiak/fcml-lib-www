@@ -1,9 +1,19 @@
 <map id="include/fcml_errors.hpp" name="include/fcml_errors.hpp">
-<area shape="rect" id="node2" href="$fcml__assembler_8hpp.html" title="C++ wrapper for FCML assembler. " alt="" coords="21,80,205,107"/>
-<area shape="rect" id="node5" href="$fcml__disassembler_8hpp.html" title="C++ wrapper for the FCML disassembler. " alt="" coords="414,80,615,107"/>
-<area shape="rect" id="node8" href="$fcml__parser_8hpp.html" title="C++ wrapper for instruction parser. " alt="" coords="229,80,389,107"/>
-<area shape="rect" id="node3" href="$fcml__lag__assembler_8hpp.html" title="C++ wrapper for the Multi&#45;pass FCML assembler. " alt="" coords="5,162,213,189"/>
-<area shape="rect" id="node4" href="$fcml__stateful__assembler_8hpp.html" title="Stateful FCML assembler implementation. " alt="" coords="238,155,381,196"/>
-<area shape="rect" id="node6" href="$fcml__renderer_8hpp.html" title="C++ wrapper for FCML renderer. " alt="" coords="417,162,588,189"/>
-<area shape="rect" id="node7" href="$fcml__stateful__disassembler_8hpp.html" title="Stateful FCML disassembler implementation. " alt="" coords="493,244,635,285"/>
+<area shape="rect" id="Node000001" title="C++ wrapper for the FCML errors handling." alt="" coords="252,5,427,31"/>
+<area shape="rect" id="Node000002" href="$fcml__assembler_8hpp.html" title="C++ wrapper for FCML assembler." alt="" coords="23,79,227,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="293,37,160,81,159,76,291,32"/>
+<area shape="rect" id="Node000005" href="$fcml__disassembler_8hpp.html" title="C++ wrapper for the FCML disassembler." alt="" coords="452,79,675,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="389,32,528,76,526,81,387,37"/>
+<area shape="rect" id="Node000008" href="$fcml__parser_8hpp.html" title="C++ wrapper for instruction parser." alt="" coords="251,79,428,104"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="342,44,342,79,337,79,337,44"/>
+<area shape="rect" id="Node000003" href="$fcml__lag__assembler_8hpp.html" title="C++ wrapper for the Multi&#45;pass FCML assembler." alt="" coords="5,159,236,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="126,118,124,159,119,159,121,118"/>
+<area shape="rect" id="Node000004" href="$fcml__stateful__assembler_8hpp.html" title="Stateful FCML assembler implementation." alt="" coords="260,152,419,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="170,106,289,149,287,154,168,111"/>
+<area shape="rect" id="Node000006" href="$fcml__renderer_8hpp.html" title="C++ wrapper for FCML renderer." alt="" coords="455,159,645,185"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="562,118,555,160,549,159,556,117"/>
+<area shape="rect" id="Node000007" href="$fcml__stateful__disassembler_8hpp.html" title="Stateful FCML disassembler implementation." alt="" coords="537,240,696,280"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="611,108,639,125,660,151,666,175,661,200,649,222,636,241,632,238,645,220,656,198,661,175,656,153,635,129,608,112"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="570,194,604,238,600,241,565,197"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="342,118,342,152,337,152,337,118"/>
 </map>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['registers',['Registers',['../group__REG__STRUCTURES__GROUP.html',1,'']]],
-  ['registers_2e',['Registers.',['../group__REGISTERS__GROUP.html',1,'']]]
+  ['global_20error_20codes_0',['Global error codes',['../group__ERRORS__GROUP.html',1,'']]]
 ];

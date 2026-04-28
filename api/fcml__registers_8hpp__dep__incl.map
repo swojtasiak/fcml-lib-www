@@ -1,3 +1,5 @@
 <map id="include/fcml_registers.hpp" name="include/fcml_registers.hpp">
-<area shape="rect" id="node2" href="$fcml__registers_8cpp.html" title="C++ registers definitions. " alt="" coords="5,80,180,107"/>
+<area shape="rect" id="Node000001" title="C++ registers declarations." alt="" coords="5,5,200,31"/>
+<area shape="rect" id="Node000002" href="$fcml__registers_8cpp.html" title="C++ registers definitions." alt="" coords="6,79,199,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,44,105,79,100,79,100,44"/>
 </map>

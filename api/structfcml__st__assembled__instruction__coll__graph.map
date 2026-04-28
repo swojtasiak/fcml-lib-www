@@ -1,4 +1,11 @@
 <map id="fcml_st_assembled_instruction" name="fcml_st_assembled_instruction">
-<area shape="rect" id="node2" href="$structfcml__st__ceh__error__container.html" title="Container for all collected errors and warnings. " alt="" coords="13,109,200,136"/>
-<area shape="rect" id="node3" href="$structfcml__st__ceh__error__info.html" title="Information about one particular error/warning. " alt="" coords="29,5,184,32"/>
+<area shape="rect" id="Node000001" title="This structure represents an encoded instruction." alt="" coords="117,211,341,236"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="355,216,367,223,359,230,341,233,340,228,357,225,362,223,353,220"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__ceh__error__container.html" title="Container for all collected errors and warnings." alt="" coords="5,115,212,141"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="136,147,215,208,212,213,133,151"/>
+<area shape="rect" id="Node000003" href="$structfcml__st__ceh__error__info.html" title="Information about one particular error/warning." alt="" coords="23,5,194,31"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="111,44,111,115,106,115,106,44"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="209,9,221,18,213,26,195,29,194,24,210,21,215,18,207,14"/>
+<area shape="rect" id="Node000004" href="$structfcml__st__assembled__instruction__details.html" title="Details describing an assembled instruction." alt="" coords="237,108,461,148"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="315,159,245,213,242,208,312,154"/>
 </map>

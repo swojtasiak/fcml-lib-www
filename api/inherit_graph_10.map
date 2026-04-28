@@ -1,3 +1,28 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classfcml_1_1DisassemblerConf.html" title="Disassembler configuration. " alt="" coords="5,5,168,32"/>
+<area shape="rect" id="Node000000" href="$classfcml_1_1DialectAware.html" title="Inherit from this class in order to get access to the native FCML dialect structure." alt="" coords="23,104,170,129"/>
+<area shape="rect" id="Node000001" href="$classfcml_1_1Assembler.html" title="An assembler wrapper." alt="" coords="267,104,395,129"/>
+<area shape="poly" id="edge11_Node000000_Node000001" title=" " alt="" coords="184,114,267,114,267,119,184,119"/>
+<area shape="rect" id="Node000006" href="$classfcml_1_1Disassembler.html" title="Disassembler wrapper." alt="" coords="257,55,405,80"/>
+<area shape="poly" id="edge12_Node000000_Node000006" title=" " alt="" coords="171,99,269,77,271,83,172,104"/>
+<area shape="rect" id="Node000007" href="$classfcml_1_1MultiPassAssembler.html" title="An assembler wrapper, as you can see the assembler context is managed internally and is not exposed o..." alt="" coords="236,301,427,327"/>
+<area shape="poly" id="edge13_Node000000_Node000007" title=" " alt="" coords="131,135,161,159,190,188,205,216,212,241,219,264,238,287,258,299,256,304,234,291,215,267,207,243,201,218,186,192,158,163,128,139"/>
+<area shape="rect" id="Node000009" href="$classfcml_1_1Parser.html" title="Parser wrapper." alt="" coords="282,153,381,179"/>
+<area shape="poly" id="edge14_Node000000_Node000009" title=" " alt="" coords="172,130,282,153,281,158,171,135"/>
+<area shape="rect" id="Node000011" href="$classfcml_1_1Renderer.html" title="Renderer wrapper." alt="" coords="272,5,391,31"/>
+<area shape="poly" id="edge15_Node000000_Node000011" title=" " alt="" coords="128,94,177,66,235,40,271,28,272,33,237,44,180,71,131,99"/>
+<area shape="rect" id="Node000002" href="$classfcml_1_1NonCopyable.html" title="Object which shouldn&#39;t be copied can inherit from this class." alt="" coords="23,203,170,228"/>
+<area shape="poly" id="edge16_Node000002_Node000001" title=" " alt="" coords="128,193,177,165,235,138,270,127,271,132,237,143,180,170,131,198"/>
+<area shape="poly" id="edge20_Node000002_Node000006" title=" " alt="" coords="123,192,186,139,208,112,219,101,235,89,260,78,263,83,237,94,222,105,213,116,190,143,127,196"/>
+<area shape="poly" id="edge21_Node000002_Node000007" title=" " alt="" coords="134,232,237,286,275,299,274,304,235,291,132,237"/>
+<area shape="rect" id="Node000003" href="$classfcml_1_1Dialect.html" title="An abstract dialect." alt="" coords="279,203,384,228"/>
+<area shape="poly" id="edge17_Node000002_Node000003" title=" " alt="" coords="184,213,279,213,279,218,184,218"/>
+<area shape="rect" id="Node000010" href="$classfcml_1_1SymbolTable.html" title=" " alt="" coords="260,252,403,277"/>
+<area shape="poly" id="edge22_Node000002_Node000010" title=" " alt="" coords="172,228,271,249,269,255,171,233"/>
+<area shape="rect" id="Node000004" href="$classfcml_1_1GASDialect.html" title="Wraps the AT&amp;T dialect." alt="" coords="476,179,608,204"/>
+<area shape="poly" id="edge18_Node000003_Node000004" title=" " alt="" coords="397,205,475,196,476,201,398,211"/>
+<area shape="rect" id="Node000005" href="$classfcml_1_1IntelDialect.html" title="Wraps the Intel dialect." alt="" coords="475,228,609,253"/>
+<area shape="poly" id="edge19_Node000003_Node000005" title=" " alt="" coords="398,221,475,230,474,235,397,226"/>
+<area shape="rect" id="Node000008" href="$classfcml_1_1SymbolTableAware.html" title="Derive from this class if you really need access to the native symbol table." alt="" coords="5,277,188,303"/>
+<area shape="poly" id="edge23_Node000008_Node000007" title=" " alt="" coords="202,298,236,302,235,307,202,303"/>
+<area shape="poly" id="edge24_Node000008_Node000009" title=" " alt="" coords="136,269,186,237,200,224,209,212,219,200,235,188,257,177,281,170,282,176,259,182,237,192,223,203,213,215,204,228,190,241,139,273"/>
 </map>

@@ -1,4 +1,7 @@
 <map id="fcml::DisassemblingFailedException" name="fcml::DisassemblingFailedException">
-<area shape="rect" id="node2" href="$classfcml_1_1ErrorContainerAwareException.html" title="Base class for all exceptions that are aware of ErrorContainer. " alt="" coords="5,80,181,121"/>
-<area shape="rect" id="node3" href="$classfcml_1_1BaseException.html" title="Base exception for all exceptions exposed by FCML library. " alt="" coords="22,5,165,32"/>
+<area shape="rect" id="Node000001" title="Component can not be initialized correctly." alt="" coords="6,167,199,207"/>
+<area shape="rect" id="Node000002" href="$classfcml_1_1ErrorContainerAwareException.html" title="Base class for all exceptions that are aware of ErrorContainer." alt="" coords="5,79,200,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,133,105,166,100,166,100,133"/>
+<area shape="rect" id="Node000003" href="$classfcml_1_1BaseException.html" title="Base exception for all exceptions exposed by FCML library." alt="" coords="25,5,180,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,44,105,79,100,79,100,44"/>
 </map>

@@ -1,11 +1,25 @@
 <map id="fcml_st_operand" name="fcml_st_operand">
-<area shape="rect" id="node2" href="$structfcml__st__integer.html" title="fcml_st_integer" alt="" coords="7,5,118,32"/>
-<area shape="rect" id="node9" href="$structfcml__st__effective__address.html" title="Effective address. " alt="" coords="289,36,463,63"/>
-<area shape="rect" id="node3" href="$structfcml__st__register.html" title="Structure describes x86_64 register. " alt="" coords="5,172,120,199"/>
-<area shape="rect" id="node5" href="$structfcml__st__operand__decorators.html" title="Container for operand decorators. " alt="" coords="283,240,469,267"/>
-<area shape="rect" id="node10" href="$structfcml__st__segment__selector.html" title="Describes segment register. " alt="" coords="289,87,463,113"/>
-<area shape="rect" id="node4" href="$structfcml__st__far__pointer.html" title="Representation of far pointer operand. " alt="" coords="625,137,759,164"/>
-<area shape="rect" id="node6" href="$structfcml__nuint8__t.html" title="fcml_nuint8_t" alt="" coords="13,283,113,309"/>
-<area shape="rect" id="node7" href="$structfcml__st__address.html" title="Generic memory addressing operator. " alt="" coords="633,87,751,113"/>
-<area shape="rect" id="node8" href="$structfcml__st__offset.html" title="Absolute offset. " alt="" coords="323,137,429,164"/>
+<area shape="rect" id="Node000001" title="Instruction operand." alt="" coords="957,112,1088,137"/>
+<area shape="rect" id="Node000002" href="$structfcml__st__integer.html" title=" " alt="" coords="7,5,130,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,13,274,13,446,16,639,26,834,47,885,54,934,69,973,89,1006,110,1003,114,971,93,932,74,884,59,833,53,639,32,446,21,274,18,144,19"/>
+<area shape="rect" id="Node000007" href="$structfcml__st__effective__address.html" title="Effective address." alt="" coords="317,37,509,63"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="144,28,156,30,317,43,316,49,156,35,143,34"/>
+<area shape="rect" id="Node000003" href="$structfcml__st__far__pointer.html" title="Representation of far pointer operand." alt="" coords="685,63,833,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="847,86,934,102,968,109,967,115,933,107,846,92"/>
+<area shape="rect" id="Node000004" href="$structfcml__st__address.html" title="Generic memory addressing operator." alt="" coords="695,112,823,137"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="837,122,957,122,957,127,837,127"/>
+<area shape="rect" id="Node000005" href="$structfcml__st__segment__selector.html" title="Describes segment register." alt="" coords="316,87,509,112"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="523,105,695,117,695,123,523,110"/>
+<area shape="rect" id="Node000006" href="$structfcml__st__register.html" title="Structure describes x86_64 register." alt="" coords="5,164,132,189"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="146,176,156,177,285,177,473,177,556,175,661,169,821,152,957,132,958,138,822,157,662,174,556,180,474,182,285,182,156,182,146,182"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="145,172,215,163,250,154,284,141,296,131,308,121,338,110,339,115,311,126,299,136,287,146,252,159,216,168,146,177"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="101,154,155,126,230,95,309,71,352,60,353,65,310,77,232,100,157,131,104,159"/>
+<area shape="rect" id="Node000009" href="$structfcml__st__operand__decorators.html" title="Container for operand decorators." alt="" coords="309,239,516,264"/>
+<area shape="poly" id="edge13_Node000009_Node000006" title=" " alt="" coords="97,196,125,215,157,230,194,240,233,247,309,253,309,258,233,252,193,246,155,235,122,220,94,200"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="523,60,592,71,662,87,686,97,721,109,720,114,684,102,661,93,591,77,522,65"/>
+<area shape="rect" id="Node000008" href="$structfcml__st__offset.html" title="Absolute offset." alt="" coords="355,136,470,161"/>
+<area shape="poly" id="edge9_Node000004_Node000008" title=" " alt="" coords="484,148,569,148,661,142,705,135,706,140,662,147,569,153,484,154"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="499,263,592,272,704,272,763,266,821,255,878,239,932,216,958,198,980,177,1011,136,1016,139,984,180,961,202,935,220,880,244,823,261,764,271,704,277,592,277,498,268"/>
+<area shape="rect" id="Node000010" href="$structfcml__nuint8__t.html" title=" " alt="" coords="13,281,124,307"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="138,296,209,297,285,290,336,277,381,262,382,267,337,283,286,295,209,302,138,302"/>
 </map>

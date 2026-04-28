@@ -1,5 +1,9 @@
 <map id="fcml::Dialect" name="fcml::Dialect">
-<area shape="rect" id="node3" href="$classfcml_1_1GASDialect.html" title="Wraps the AT&amp;T dialect. " alt="" coords="5,155,129,181"/>
-<area shape="rect" id="node4" href="$classfcml_1_1IntelDialect.html" title="Wraps the Intel dialect. " alt="" coords="153,155,275,181"/>
-<area shape="rect" id="node2" href="$classfcml_1_1NonCopyable.html" title="Object which shouldn&#39;t be copied can inherit from this class. " alt="" coords="73,5,208,32"/>
+<area shape="rect" id="Node000001" title="An abstract dialect." alt="" coords="97,79,203,104"/>
+<area shape="rect" id="Node000003" href="$classfcml_1_1GASDialect.html" title="Wraps the AT&amp;T dialect." alt="" coords="5,152,137,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,115,86,154,82,150,125,111"/>
+<area shape="rect" id="Node000004" href="$classfcml_1_1IntelDialect.html" title="Wraps the Intel dialect." alt="" coords="161,152,296,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,111,218,150,214,154,171,115"/>
+<area shape="rect" id="Node000002" href="$classfcml_1_1NonCopyable.html" title="Object which shouldn&#39;t be copied can inherit from this class." alt="" coords="77,5,223,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,44,153,79,147,79,147,44"/>
 </map>
