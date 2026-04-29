@@ -244,7 +244,7 @@
 						<ul>
 							<li><a href="#examples-fcml-asm">fcml-asm</a></li>
 							<li><a href="#examples-fcml-disasm">fcml-disasm</a></li>
-							<li><a href="#examples-hsdis">hdis</a></li>
+							<li><a href="#examples-hsdis">hsdis</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -366,7 +366,7 @@ Doxygen..........: NONE
 
 <h3 id="installation-windows-vs">Visual Studio</h3>
 <p>
-	There are solutions prepared for Visual Studio available in <i>win32/vs2008</i>, <i>win32/vs2010</i> and <i>win32/vs2013</i> directories. Everything you need to do is to load such a solution using your Visual Studio and click build. All paths are relative to the distribution directory so everything should be built without any problems. You can also choose between a few configurations in order to build static or dynamic libraries. Solutions supports x86 and x64 builds.
+	There are solutions prepared for Visual Studio available in <i>win32/vs2017</i> and <i>win32/vs2019</i> directories. Everything you need to do is to load such a solution using your Visual Studio and click build. All paths are relative to the distribution directory so everything should be built without any problems. You can also choose between a few configurations in order to build static or dynamic libraries. Solutions supports x86 and x64 builds.
 <p> 
 <p>
 	Remember that header files available in <i>${DIST_DIR}/include</i> have to be added as include directory to the destination project in order to use the built libraries.
@@ -437,7 +437,7 @@ error = fcml_fn_assembler_init( dialect, &amp;assembler );
 	To make the code a bit clearer error handling has been avoided in this specific case, but it should be implemented in the same way as in the case of dialect initialization. All possible error codes are defined in the <i><a href="api/fcml__errors_8h.html">fcml_errors.h</a></i> header file.
 </p>
 <p>
-	Once both the dialect and the assembler are initialized, there is the last thing to be done before assembling is possible. It is an assembler result structure. This structure is reusable, therefore it has to be prepared in the right way in order to allow assembler to reuse it correctly. To do so, a manually allocated structure has to be passed to the <i><a href="api/fcml__assembler_8h.html#a3a827d482043c2fc1c6766e71f047484">fcml_sn_assembler_result_prepare</a></i> function:
+	Once both the dialect and the assembler are initialized, there is the last thing to be done before assembling is possible. It is an assembler result structure. This structure is reusable, therefore it has to be prepared in the right way in order to allow assembler to reuse it correctly. To do so, a manually allocated structure has to be passed to the <i><a href="api/fcml__assembler_8h.html#a3a827d482043c2fc1c6766e71f047484">fcml_fn_assembler_result_prepare</a></i> function:
 </p>
 
 <pre class="brush: cpp">
@@ -482,7 +482,7 @@ context.configuration.enable_error_messages = FCML_TRUE;
 	The last thing to do is to set up the entry point correctly:
 </p>
 <pre class="brush: cpp">
-context.entry_point.addr_form = FCML_MO_32_BIT;
+context.entry_point.op_mode = FCML_OM_32_BIT;
 context.entry_point.ip = 0x401000;
 </pre>
 <p>
@@ -495,7 +495,7 @@ The full source code for initializing the assembler context:
 fcml_st_assembler_context context = {0};
 context.assembler = assembler;
 context.configuration.enable_error_messages = FCML_TRUE;
-context.entry_point.addr_form = FCML_OM_32_BIT;
+context.entry_point.op_mode = FCML_OM_32_BIT;
 context.entry_point.ip = 0x401000;
 </pre>
 <p>Now we are ready to assemble the GIM we prepared earlier, so let's do that.</p>
@@ -743,9 +743,9 @@ The <i>code</i> should be a pointer to an array of bytes which contains instruct
 of course holds the length of the array in bytes.
 </p>
 <p>
-The machine code is configured now, but we known nothing about the code section, so it is time to set the
+The machine code is configured now, but we know nothing about the code section, so it is time to set the
 instruction pointer and processor addressing mode by setting the entry point structure correctly
-(If you do not known what the instruction pointer, address size attribute or processor operating
+(If you do not know what the instruction pointer, address size attribute or processor operating
 mode are, you definitely should at least read this chapter: <a href="#un-entry-point">Understanding entry point</a>)
 </p>
 <p>
@@ -807,7 +807,7 @@ If everything succeeded, the error code is <i>FCML_CEH_GEC_NO_ERROR</i> and the 
 the form of the generic instruction model. Let's take a look at <i><a href="api/structfcml__st__disassembler__result.html">fcml_st_disassembler_result</a></i> structure.
 Field <i><a href="api/structfcml__st__disassembler__result.html#a8f402916076e73413bc1a31dbdb78141">errors</a></i> contain error messages if the function failed (Or potential warnings in case of success).
 </p>
-</p>
+<p>
 There is also <i><a href="api/structfcml__st__instruction__details.html">fcml_st_instruction_details</a></i> structure which consists of additional information which is
 not relevant for the general instruction model but anyway can be useful through the process of the instruction analysis.
 </p>
@@ -841,7 +841,7 @@ where textual representation of the instruction will be rendered. You can alloca
 following way:
 </p>
 <pre class="brush: cpp">
-fcml_uint8_t buffer[FCML_INSTRUCTION_SIZE];
+fcml_char buffer[FCML_REND_MAX_BUFF_LEN];
 </pre>
 <p>
 Remember that the buffer is also reusable and does not have to be cleaned between multiple calls
@@ -851,8 +851,8 @@ to the rendering function.
 We have prepared all needed parameters, so let's render the instruction from the disassembler result:
 </p>
 <pre class="brush: cpp">
-fcml_ceh_error error = fcml_fn_render( dialect, render_config, 
-	buffer, sizeof( buffer ), result );
+fcml_ceh_error error = fcml_fn_render( dialect, &render_config,
+	buffer, sizeof( buffer ), &result );
 </pre>
 <p>
 As you can see we pass the whole disassembler result structure to the renderer. It is
@@ -946,7 +946,7 @@ that they all are defined as bit masks so you can set more than one prefix for t
 
 <h3 id="instruction_level_hints">Instruction level hints</h3>
 <p>The second field <i><a href="api/structfcml__st__instruction.html#a885afc2e9220030ed2d0a2600cc870ac">hints</a></i> is used to set some instruction level hints for the assembler/renderer (Every
-disassembler instance also sets them, so fell free to use them whenever possible). Currently there
+disassembler instance also sets them, so feel free to use them whenever possible). Currently there
 are following hints supported:</p>
 <pre class="brush: cpp">
 typedef enum fcml_en_instruction_hints {
@@ -1197,9 +1197,9 @@ typedef struct fcml_st_integer {
 </p>
 <pre class="brush: cpp">
 fcml_st_immediate imm = {0};
-imm.imm_size = FCML_DS_16;
+imm.size = FCML_DS_16;
 imm.is_signed = FCML_TRUE;
-imm.imm16 = -256;
+imm.int16 = -256;
 </pre>
 
 <h4 id="op-far-pointer">Far pointer operand</h4>
@@ -1748,7 +1748,7 @@ LIB_EXPORT fcml_ceh_error LIB_CALL fcml_fn_dialect_init_intel(
 </pre>
 <p>
 	The first argument is not used by the Intel dialect and should be always set to
-	FCML_INTEL_DIALECT_CF_DEFAUL. It is used here only in order to make the function declaration
+	FCML_INTEL_DIALECT_CF_DEFAULT. It is used here only in order to make the function declaration
 	the same as for the AT&amp;T dialect which can be very useful when we have to store them inside
 	function pointers.
 </p>
@@ -1763,7 +1763,7 @@ LIB_EXPORT fcml_ceh_error LIB_CALL fcml_fn_dialect_init_intel(
 </p>
 <pre class="brush: cpp">
 fcml_st_dialect *dialect;
-error = fcml_fn_dialect_init_intel( FCML_GAS_DIALECT_CF_DEFAULT, &dialect );
+error = fcml_fn_dialect_init_intel( FCML_INTEL_DIALECT_CF_DEFAULT, &dialect );
 if( error ) {
 	printf( "Cannot initialize the Intel dialect, error: %d\n", error );
 	exit(1);
@@ -2659,8 +2659,8 @@ LIB_EXPORT fcml_ceh_error LIB_CALL fcml_fn_assemble(
 	To sum up, let's take a look at the following piece of code. It shows the pattern we should follow when working with the result structure:
 </p>
 <pre class="brush: cpp">
-fcml_st_disassembler_result result;
-fcml_fn_disassembler_result_prepare( &amp;result );
+fcml_st_assembler_result asm_result;
+fcml_fn_assembler_result_prepare( &amp;asm_result );
 while(...) {
     fcml_fn_assemble( &amp;asm_context, &amp;instruction, &amp;asm_result );
     ...
@@ -3543,7 +3543,7 @@ BNF grammar for Bison parser generator: ${dist}/src/fcml_intel_parser_def.y
 	</tbody>
 </table>
 <p>
-	If you do not known any of these do not hesitate to look at the Intel or AMD architecture manual.
+	If you do not know any of these, do not hesitate to look at the Intel or AMD architecture manual.
 </p>
 
 <h4 id="parser-intel-hints">Hints</h4>
@@ -3650,14 +3650,14 @@ BNF grammar for Bison parser generator: ${dist}/src/fcml_intel_parser_def.y
 
 <h3 id="parser-gas">AT&amp;T parser</h3>
 <p>
-	Parsers which follows the AT&amp;T syntax are based on the syntax which was created at AT&amp;T Bell Labs and is mainly used in UNIX-like environments. The following chapters describe some specific aspects of the AT&amp;T syntax. If you are interested how the AT&amp;T parser works do not hesitate to take a look at the following source files:
+	The AT&amp;T parser follows the syntax created at AT&amp;T Bell Labs, which is mainly used in UNIX-like environments. The following chapters describe some specific aspects of the AT&amp;T syntax. If you are interested in how the AT&amp;T parser works, do not hesitate to take a look at the following source files:
 </p>
 <p>
 	Rules for Flex scanner generator: ${dist}/src/fcml_gas_lexer.l<br>
 	BNF grammar for Bison parser generator: ${dist}/src/fcml_gas_parser_def.y
 </p>
 <p>
-	You may wonder why GAS term is used to describe the AT&amp;T syntax. The answer is simple. AT&amp;T cannot be used as a valid C symbol. Since the GAS (GNU assembler) is in fact the reference implementation of the syntax now, it is justified to call it GAS syntax as well. The more that the main goal of the dialect is to be compatible with the GNU assembler.
+	You may wonder why GAS term is used to describe the AT&amp;T syntax. The answer is simple. AT&amp;T cannot be used as a valid C symbol. Since the GAS (GNU assembler) is in fact the reference implementation of the syntax now, it is justified to call it GAS syntax as well. Moreover, the main goal of the dialect is to be compatible with the GNU assembler.
 </p>
 
 <h4 id="parser-gas-numeric">Numeric values</h4>
@@ -3842,7 +3842,7 @@ context.entry_point.ip = 0x00401000;
 context.disassembler = disassembler;
 </pre>
 <p>
-	The next piece of code shows how the whole context initialization code should looks like:
+	The next piece of code shows how the whole context initialization code should look:
 </p>
 <pre class="brush: cpp">
 fcml_st_disassembler_context context = {0};
@@ -3905,7 +3905,7 @@ typedef struct fcml_st_instruction_details {
 
 <h4 id="disassembler-analyse-shortcuts">Shortcuts</h4>
 <p>
-	Two first two fields <i><a href="api/structfcml__st__instruction__details.html#a8174e580e3f7916f16f0c5b2d06bdc4d">is_shortcut</a></i> and <i><a href="api/structfcml__st__instruction__details.html#afcdf4fea7a85ccb67e592c33c9684364">is_pseudo_op</a></i> are related to the short instruction forms. The first one is always sets to <i>FCML_TRUE</i> if disassembled instruction is in its short form, so it needs the flag <i><a href="api/structfcml__st__disassembler__conf.html#a1f91b6e27453c19fe1896bb121f4ae87">short_forms</a></i> from the <i><a href="api/structfcml__st__disassembler__conf.html">fcml_st_disassembler_conf</a></i> structure to be set. 
+	The first two fields <i><a href="api/structfcml__st__instruction__details.html#a8174e580e3f7916f16f0c5b2d06bdc4d">is_shortcut</a></i> and <i><a href="api/structfcml__st__instruction__details.html#afcdf4fea7a85ccb67e592c33c9684364">is_pseudo_op</a></i> are related to the short instruction forms. The first one is always sets to <i>FCML_TRUE</i> if disassembled instruction is in its short form, so it needs the flag <i><a href="api/structfcml__st__disassembler__conf.html#a1f91b6e27453c19fe1896bb121f4ae87">short_forms</a></i> from the <i><a href="api/structfcml__st__disassembler__conf.html">fcml_st_disassembler_conf</a></i> structure to be set. 
 </p>
 <p>
 	The second flag <i><a href="api/structfcml__st__instruction__details.html#afcdf4fea7a85ccb67e592c33c9684364">is_pseudo_op</a></i>  can be set for these instructions: CMPSD, VCMPSD, CMPSS, VCMPSS, VPCOMB, VPCOMW, VPCOMD, VPCOMQ, VPCOMUB, VPCOMUW, VPCOMUD, VPCOMUQ and is set only and only if their short forms called pseudo-ops are returned. For example:
@@ -3970,7 +3970,7 @@ typedef struct fcml_st_prefixes_details {
 </p>
 <p>
 	So let's start with the <i><a href="api/structfcml__st__instruction__prefix.html">fcml_st_instruction_prefix</a></i> structure:
-<p/>
+</p>
 <pre class="brush: cpp">
 typedef struct fcml_st_instruction_prefix {
 	fcml_uint8_t prefix;
@@ -4109,10 +4109,10 @@ The last field <i><a href="api/structfcml__st__instruction__details.html#ab3268b
 #define 	FCML_AMT_AVX512_SIMD   FCML_AMT_AVX512 | FCML_AMT_SIMD
 </pre>
 <p>
-	For instance CALL instruction is a member of the following groups: <i>FCML_AMT_GPI</i> (General purpose instruction), <i>FCML_AMT_CTI</i> (Controll transfer instruction), <i>FCML_AMT_BRANCH</i> (Branch instruction). 
+	For instance, the CALL instruction is a member of the following groups: <i>FCML_AMT_GPI</i> (General purpose instruction), <i>FCML_AMT_CTI</i> (Controll transfer instruction), <i>FCML_AMT_BRANCH</i> (Branch instruction). 
 </p>
 <p>
-	Notice that they are not always related to the CUID flags.
+	Notice that they are not always related to the CPUID flags.
 </p>
 
 <h3 id="disassembler-free">Freeing resources</h3>
@@ -4130,7 +4130,7 @@ fcml_fn_dialect_free( dialect );
 
 <h2 id="instruction-renderer">Instruction renderer</h2>
 <p>
-	Instruction renderers are used to generate textual representation of assembled instructions. All you need to do is to configure instruction renderer and render a disassembler result into a provided text buffer. So let's do it, but at first take a look at the function we will use to render the instruction model:
+	Instruction renderers are used to generate a textual representation of disassembled instructions. All you need to do is to configure the instruction renderer and render a disassembler result into a provided text buffer. So let's do it, but at first take a look at the function we will use to render the instruction model:
 </p>
 <pre class="brush: cpp">
 LIB_EXPORT fcml_ceh_error LIB_CALL fcml_fn_render( 
@@ -4141,7 +4141,7 @@ LIB_EXPORT fcml_ceh_error LIB_CALL fcml_fn_render(
 	fcml_st_disassembler_result *result );
 </pre>
 <p>
-	This function needs quite a few arguments but take into account that there is only one argument that have to be carefully prepared. It is the <i><a href="api/structfcml__st__render__config.html">fcml_st_render_configstructure</a></i> which configures some aspects of the rendering process:
+	This function needs quite a few arguments but take into account that there is only one argument that have to be carefully prepared. It is the <i><a href="api/structfcml__st__render__config.html">fcml_st_render_config</a></i> structure which configures some aspects of the rendering process:
 </p>
 <pre class="brush: cpp">
 typedef struct fcml_st_render_config {
@@ -4352,7 +4352,7 @@ render_config.render_flags = FCML_REND_FLAG_HEX_IMM | FCML_REND_FLAG_HEX_DISPLAC
 	To get back to the rendering function, the two arguments that follow configuration: <i>buffer</i> and <i>buffer_length</i> point to the destination text buffer where textual representation of the instruction will be written. You can allocate the destination buffer this way for example:
 </p>
 <pre class="brush: cpp">
-fcml_uint8_t buffer[FCML_INSTRUCTION_SIZE];
+fcml_char buffer[FCML_REND_MAX_BUFF_LEN];
 </pre>
 <p>
 	Remember that this buffer is also a reusable one and does not have to be cleaned between multiple calls to the rendering function.
@@ -4362,7 +4362,7 @@ fcml_uint8_t buffer[FCML_INSTRUCTION_SIZE];
 </p>
 <pre class="brush: cpp">
 fcml_ceh_error error;
-error = fcml_fn_render( dialect, render_config, buffer, sizeof( buffer ), result );
+error = fcml_fn_render( dialect, &render_config, buffer, sizeof( buffer ), &result );
 </pre>
 <p>
 	Notice that we pass the whole disassembler result structure to the renderer. It is important to note that in order to render the instruction the GIM is not enough, it is why the whole result is passed as the argument, because it contains <i><a href="api/structfcml__st__instruction__details.html">fcml_st_instruction_details</a></i> structure which is also used by the renderer. 
@@ -4455,11 +4455,11 @@ Instruction: adc qword ptr [r9+rcx*4+1],r12
 </p>
 <ul class="feature-list">
 	<li>The wrapper has to be easy in use.</li>
-	<li>The performance is not the main goal here. If you really need the best performance possible, you should definitely consider using the C API directly. Anyway it does not mean that it is slow. It can be just a bit slower that proper C implementation, maintly because C++ data structures are often being copied just to make the usage easier. See the next point.</li>
+	<li>The performance is not the main goal here. If you really need the best performance possible, you should definitely consider using the C API directly. Anyway it does not mean that it is slow. It can be just a bit slower that proper C implementation, mainly because C++ data structures are often being copied just to make the usage easier. See the next point.</li>
 	<li>If it is possible to copy or assign an object you can be sure that the deep copy is being made and the two objects being the result of the operation are completely independent and can be freed whenever you want (There is one exception from this rule and it is documented later, see: CodeIterator class). It can hit the performance a bit, so you have to bear it in mind that C structures are always copied to the C++ objects. In most cases there are no wrappers around the structures directly. It is the most important assumption here and it will not be changed in future releases. For instance the whole fcml_st_assembler_result is always copied to the fcml::AssemblerResult after every call to the assembler.</li>
-	<li>If for whatever reason an object cannot be deep copied C++ compiler just will not allow you to do so. The <i><a href="api/classfcml_1_1Assembler.html">Assembler</a></i> class is a good example of such a class. It maintains a real instance of <i><a href="api/fcml__assembler_8h.html#a07ef99f7c08004280dfe87f302f62f28">fcml_fn_assemble</a></i> structre which cannot be copied just like that.</li>
+	<li>If for whatever reason an object cannot be deep copied C++ compiler just will not allow you to do so. The <i><a href="api/classfcml_1_1Assembler.html">Assembler</a></i> class is a good example of such a class. It maintains a real instance of the native assembler (<i>fcml_st_assembler</i>) structure which cannot be copied just like that.</li>
 	<li>Strings are always wrapped in the <i>fcml::fcml_cstring</i>, so you do not have to track them.</li>
-	<li>Build-in exceptions are ALWAYS thrown using references. It's event not possible to allocate them using the “new” operator.</li>
+	<li>Build-in exceptions are ALWAYS thrown using references. It's even not possible to allocate them using the “new” operator.</li>
 	<li>Some of the C enumeration types are wrapped in the new types declared directly in the classes using them (just to make them more convenient to use).</li>
 	<li>There might be CPP files that can be included just to compile and link some definitions into the destination object files, but they are here due to the convenience and they are optional, so it is your decision to use them or not.</li>
 	<li>Most of the C structures have their CPP counterparts placed in header files with “.hpp” extensions.</li>
@@ -4494,8 +4494,8 @@ int main() {
 	For Intel mnemonics use <i><a href="api/fcml__intel__mnemonics_8cpp.html">fcml_intel_mnemonics.cpp</a></i>
 </p>
 <p>
-If you really need to use GAS and Intel mnemonics together, just fell free to do it, but you have to be aware that they use different name spaces: <i>fcml::intel</i> and <i>fcml:gas</i>.
-<p>
+If you really need to use GAS and Intel mnemonics together, just feel free to do it, but you have to be aware that they use different namespaces: <i>fcml::intel</i> and <i>fcml::gas</i>.
+</p>
 <p>
 In case you are sceptical about including implementation files you can always use plain C header files <i><a href="api/fcml__gas__mnemonics_8h.html">fcml_gas_mnemonics.h</a></i> and <i><a href="api/fcml__intel__mnemonics_8h.html">fcml_intel_mnemonics.h</a></i> which declares mnemonics using preprocessor directives, but remember that using mnemonics dedicated to C++ you can gain some performance, because <i>fcml_cstring</i> instances do not need to be created implicitly if methods or operators expect them (every mnemonic is just a constant <i>fcml_cstring</i>).
 </p>
@@ -4626,11 +4626,11 @@ SegmentSelector::seg( Register::CS(),true );
     The first parameter represents a segment register, the second one should be set to true if the segment selector sets the default segment register in the given context.
 </p>
 
-<h3 id="cpp-generic-instruction-model-cpp-effective-address"a>Effective address</h3>
+<h3 id="cpp-generic-instruction-model-cpp-effective-address">Effective address</h3>
 <p>
     Effective addresses can be created using constructors, but there are also factory methods which can be used to prepare every allowed combination of the effective address components. Take a look at the <a href="api/classfcml_1_1EffectiveAddress.html">API</a> to master all the ways of allocating it. The following code shows few examples:
 </p>
-</p>
+<p>
     Using the constructor:
 </p>
 <pre class="brush: cpp">
@@ -4723,7 +4723,7 @@ operand.addr( EffectiveAddress( Register::EAX() ) );
     Take a look at the <a href="api/classfcml_1_1Operand.html">API</a> to see all of them.
 </p>
 <p>
-There is also an operand builder class fcml:OB which is strictly dedicated to creation of operands by exposing static factory methods:
+There is also an operand builder class fcml::OB which is strictly dedicated to creation of operands by exposing static factory methods:
 </p>
 <pre class="brush: cpp">
 Operand eff = OB::addr( EffectiveAddress( Register::EAX() ) );
@@ -4778,7 +4778,7 @@ Instruction instruction = IB( M_VADDPS ) &lt;&lt; dst &lt;&lt; OB::reg( ZMM1 ) &
 
 <h3 id="cpp-generic-instruction-model-cpp-instructions">Instructions</h3>
 <p>
-Until now we have discussed all parts of the generic instruction model, so it is time to create some instructions using them. Of course instructions can be prepared using constructors directly, but there are no factory methods in the <i><a href="api/classfcml_1_1Instruction.html">fcml:Instruction</a></i> class like in the other cases. Instead, there is another class <i><a href="api/classfcml_1_1IB.html">fcml:IB</a></i>. It is a stateful instruction builder which is destined to prepare instructions in a bit more convenient way. So let's see some examples:
+Until now we have discussed all parts of the generic instruction model, so it is time to create some instructions using them. Of course instructions can be prepared using constructors directly, but there are no factory methods in the <i><a href="api/classfcml_1_1Instruction.html">fcml::Instruction</a></i> class like in the other cases. Instead, there is another class <i><a href="api/classfcml_1_1IB.html">fcml::IB</a></i>. It is a stateful instruction builder which is destined to prepare instructions in a bit more convenient way. So let's see some examples:
 </p>
 <p>
 For the sake of this example let's try to build the following instruction by hand: "<span class="instruction">mov byte ptr [eax], ecx</span>".
@@ -4885,7 +4885,7 @@ try {
    AssembledInstruction *chosenInstruction = result.getChosenInstruction();
 
 } catch( BaseException &exc ) {
-   std:out &lt;&lt; "Exception while assembling the code." &lt;&lt; std::endl;
+   std::cout &lt;&lt; "Exception while assembling the code." &lt;&lt; std::endl;
 }
 </pre>
 <p>
@@ -4908,7 +4908,7 @@ assemblerContext.getConfig().setThrowExceptionOnError( false );
     Remember that the constructor of the <i><a href="api/classfcml_1_1IntelDialect.html">IntelDialect</a></i> and <i><a href="api/classfcml_1_1GASDialect.html">GASDialect</a></i> can also throw an exception.
 </p>
 <p>
-    See the API documentation I order to learn more about how <i><a href="api/classfcml_1_1AssembledInstruction.html">AssembledInstruction</a></i> and <i><a href="api/classfcml_1_1AssemblerResult.html">AssemblerResult</a></i> can be used.
+    See the API documentation in order to learn more about how <i><a href="api/classfcml_1_1AssembledInstruction.html">AssembledInstruction</a></i> and <i><a href="api/classfcml_1_1AssemblerResult.html">AssemblerResult</a></i> can be used.
 </p>
 
 <h2 id="cpp-multiline-assembler">Multiline assembler</h2>
@@ -4990,7 +4990,7 @@ try {
 }
 </pre>
 <p>
-    As you can see everything you are obliged to do in order to initialize it is to pass an assembler instance and an assembler context into the constructor. Then you can use dedicated methods or shift operators in order to assemble instructions one by one without doing anything else to achieve that. As you might have noticed using it is very similar to using the <i><a href="api/classfcml_1_1IB.html">fcml:IB</a></i> class described earlier and you are right. In fact it uses <i><a href="api/classfcml_1_1IB.html">fcml:IB</a></i> internally so the rules are very similar.
+    As you can see everything you are obliged to do in order to initialize it is to pass an assembler instance and an assembler context into the constructor. Then you can use dedicated methods or shift operators in order to assemble instructions one by one without doing anything else to achieve that. As you might have noticed using it is very similar to using the <i><a href="api/classfcml_1_1IB.html">fcml:IB</a></i> class described earlier and you are right. In fact it uses <i><a href="api/classfcml_1_1IB.html">fcml::IB</a></i> internally so the rules are very similar.
 </p>
 <p>
     There is one thing you have to be aware of using it. As you can see instructions are built mnemonic by mnemonic and operand by operand, but there is nothing like "now assemble the pending instruction". The assembling process is always invoked if there is a pending instruction in the buffer and the new instruction is being pushed into the assembler as a new mnemonic for instance. In such a case the pending instruction is firstly assembled and then the new one is being placed into the instruction builder. In case of the last instruction, the instruction is assembled lazily when you ask for the result by getting a code iterator or vector of assembled instructions. There is also a way to flush pending instruction on demand passing <i><a href="api/classfcml_1_1StatefulAssembler.html#ae3d658e83f2434f10886b7f314e988ee">StatefulAssembler::FLUSH()</a></i> to the builder using shift operators of calling <i><a href="api/classfcml_1_1StatefulAssembler.html#af27ec293a26e7a0caedab8557bd91ed1">"flush()"</a></i> method directly:
@@ -4999,7 +4999,7 @@ try {
 statefulAssembler &lt;&lt; M_CALL &lt;&lt; OB::offq(0x41d719) &lt;&lt; StatefulAssembler::FLUSH();
 </pre>
 <p>
-It is a quite important rule because such a lazily invoked assembling may fail and throw an exception. So you should be always prepared for it. 
+This is quite an important rule because such a lazily invoked assembling may fail and throw an exception. So you should be always prepared for it. 
 </p>
 <p>
 There is also a way to assemble textual instructions after passing true as the third parameter to the <i><a href="api/classfcml_1_1StatefulAssembler.html">StatefulAssembler</a></i> constructor:
@@ -5053,8 +5053,8 @@ try {
     The whole disassembler functionality is wrapped into <i><a href="api/classfcml_1_1Disassembler.html">Disassembler</a></i> class, which is a wrapper over the native <i><a href="api/fcml__disassembler_8h.html#a26d4fb7b2eae675eeaaadbd950881c07">fcml_fn_disassemble</a></i> function. The class itself is rather small and consists of 100 lines of code, but there are a lot of data containers which in majority of cases are counterparts to the structures that are used to return information about disassembled instructions and as such they are not described here in details. Head over to the <i><a href="api/annotated.html">API</a></i> documentation to master them. Looking at the API focus on the overloaded operands, because in some cases they can be really useful. Especially in case of common classes like Integer.
 </p>
 <p>
-Ok, let's back to the disassembler. In order to prepare a working disassembler you have to allocate a dialect which has to be passed into the <i><a href="api/classfcml_1_1Disassembler.html#afff5a61c43919c2cc16dc1dfe294fca5">Disassembler</a></i> constructor and that's all as long as the constructor succeeded, but you have to be aware that it might fail if there is any problem with initialization of the FCML disassembler. Bear in mind that the majority of wrappers here use C functions in order to allocate needed resources. The disassembler is not an exception here and it uses <i><a href="api/fcml__disassembler_8h.html#adf09c06401a52542ce65739f8a441506">fcml_fn_disassembler_init</a></i> function which can also fail in some circumstances.
-Having initialized a disassembler you only need a <i><a href="api/classfcml_1_1DisassemblerContext.html">DisassemberContext</a></i> and after initializing it you can start playing with the disassembler. The following code shows the disassembling process as a whole:
+Ok, let's get back to the disassembler. In order to prepare a working disassembler you have to allocate a dialect which has to be passed into the <i><a href="api/classfcml_1_1Disassembler.html#afff5a61c43919c2cc16dc1dfe294fca5">Disassembler</a></i> constructor and that's all as long as the constructor succeeded, but you have to be aware that it might fail if there is any problem with initialization of the FCML disassembler. Bear in mind that the majority of wrappers here use C functions in order to allocate needed resources. The disassembler is not an exception here and it uses <i><a href="api/fcml__disassembler_8h.html#adf09c06401a52542ce65739f8a441506">fcml_fn_disassembler_init</a></i> function which can also fail in some circumstances.
+Having initialized a disassembler you only need a <i><a href="api/classfcml_1_1DisassemblerContext.html">DisassemblerContext</a></i> and after initializing it you can start playing with the disassembler. The following code shows the disassembling process as a whole:
 </p>
 <pre class="brush: cpp">
 try {
@@ -5091,7 +5091,7 @@ try {
 
 <h2 id="cpp-stateful-disassembler">Stateful disassembler</h2>
 <p>
-    The stateful disassembler automates the process of disassembling instructions one by one. It consist of <i><a href="api/classfcml_1_1DisassemblerContext.html">DisassemberContext</a></i> and the <i><a href="api/classfcml_1_1Disassembler.html#afff5a61c43919c2cc16dc1dfe294fca5">Disassembler</a></i> itself and is a kind of mediator which controls the whole process. The following code shows how to initialize stateful disassembler and dissemble four instructions in a row:
+    The stateful disassembler automates the process of disassembling instructions one by one. It consists of <i><a href="api/classfcml_1_1DisassemblerContext.html">DisassemblerContext</a></i> and the <i><a href="api/classfcml_1_1Disassembler.html#afff5a61c43919c2cc16dc1dfe294fca5">Disassembler</a></i> itself and is a kind of mediator which controls the whole process. The following code shows how to initialize stateful disassembler and dissemble four instructions in a row:
 </p>
 <pre class="brush: cpp">
 try {
@@ -5108,7 +5108,7 @@ try {
 
     Instruction instruction;
 
-    // Disassemble four instructions oner by one.
+    // Disassemble four instructions one by one.
     disas &gt;&gt; instruction;
     disas &gt;&gt; instruction;
     disas &gt;&gt; instruction;
@@ -5125,7 +5125,7 @@ You have to take into account that you cannot avoid exceptions using the statefu
     The component itself is located in the <i><a href="api/fcml__stateful__disassembler_8hpp.html">fcml_stateful_disassembler.hpp</a></i> header file. If you have any questions do not hesitate to take a look at the implementation. The component is really simple and consists of only about 200 lines of code.
 </p>
 <p>
-    Mind you that every class used is allocated on the stack. It is one of the global rules. You can allocate everything without the use of the new operator. There are event classes which cannot be allocated using the new operator at all, like the exceptions.
+    Mind you that every class used is allocated on the stack. It is one of the global rules. You can allocate everything without the use of the new operator. There are even classes which cannot be allocated using the new operator at all, like the exceptions.
 </p>
 
 <h1 id="examples">Examples</h1>
@@ -5212,9 +5212,9 @@ Details:
 	In order to get information about all supported options type "<tt>./fcml-disasm –help</tt>".
 </p>
 
-<h2 id="examples-hsdis">hdis</h2>
+<h2 id="examples-hsdis">hsdis</h2>
 <p>
-	It is a fully functional disassembler for Java just-in-time compiler. It can be registered inside the chosen Java process in order to print the whole native code generated by JIT. As opposed to the examples above it does not take part in the main build process, so in order to build it you have to go to the "exampes/hdis" directory and type: "<tt>make</tt>". After the build process is finished you have to go to the ".libs" directory where the shared library was built. You will find something like: "libsdis.so.0.0.0" in there. It is the built disassembler. This project is also available for the Visual Studio build and in case of the Visual Studio all you need to do is to click build :)
+	It is a fully functional disassembler for Java just-in-time compiler. It can be registered inside the chosen Java process in order to print the whole native code generated by JIT. As opposed to the examples above it does not take part in the main build process, so in order to build it you have to go to the "examples/hsdis" directory and type: "<tt>make</tt>". After the build process is finished you have to go to the ".libs" directory where the shared library was built. You will find something like: "libsdis.so.0.0.0" in there. It is the built disassembler. This project is also available for the Visual Studio build and in case of the Visual Studio all you need to do is to click build :)
 </p>
 <div class="notice-box">
 Do not use MinGW/Cygwin to build this example if you do not know how to build it correctly, because by default FCML is not configured to build the library in the appropriate way using these compilers (Mentioned problem with symbols.). Remember that there are pre-built binaries in the distribution archive.
@@ -5235,12 +5235,12 @@ Do not use MinGW/Cygwin to build this example if you do not know how to build it
 			<tr>
 				<td>GNU/Linux-x86</td>
 				<td>hsdis-i386.so</td>
-				<td>${JAVA_HOME}/jre/lib/amd64</td>
+				<td>${JAVA_HOME}/jre/lib/i386</td>
 			</tr>
 			<tr>
 				<td>GNU/Linux-x86_64</td>
 				<td>hsdis-amd64.so</td>
-				<td>${JAVA_HOME}/jre/lib/i386</td>
+				<td>${JAVA_HOME}/jre/lib/amd64</td>
 			</tr>
 			<tr>
 				<td>Windows-x86</td>
@@ -5493,7 +5493,7 @@ RIP: 0x212a340 Code size: 0x00000158
 						<ul class="nav">
 							<li><a href="#examples-fcml-asm">fcml-asm</a></li>
 							<li><a href="#examples-fcml-disasm">fcml-disasm</a></li>
-							<li><a href="#examples-hsdis">hdis</a></li>
+							<li><a href="#examples-hsdis">hsdis</a></li>
 						</ul>
 					</li>
 				</ul>
